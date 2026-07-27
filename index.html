@@ -105,6 +105,12 @@
   .story-text p {
     font-size: 0.98rem; line-height: 1.85; color: #5a5a5a; max-width: 400px;
   }
+  .story-link {
+    display: inline-block; margin-top: 26px; color: #1A403A; text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+    border-bottom: 1px solid #1A403A; padding-bottom: 3px; transition: opacity 0.2s;
+  }
+  .story-link:hover { opacity: 0.6; }
   .story-image {
     background: linear-gradient(135deg, #1A403A 0%, #0d2218 100%);
     display: flex; align-items: center; justify-content: center;
@@ -236,7 +242,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="#products" data-i18n="nav.products">Termékeink</a></li>
-      <li><a href="#story" data-i18n="nav.farm">Farmunk</a></li>
+      <li><a href="farm.html" data-i18n="nav.farm">Farmunk</a></li>
       <li><a href="#order" data-i18n="nav.order">Rendelés</a></li>
     </ul>
     <div class="lang-switch">
@@ -258,6 +264,7 @@
     <div class="label" data-i18n="story.label">A farm</div>
     <h2 data-i18n="story.h2">1 900 m² a zentai határban,<br>ahol minden csepp megterem.</h2>
     <p data-i18n="story.p">Levendula, cickafark, szalmagyopár – kis ültetvény, de minden növényt kézzel szedünk és saját laborban dolgozunk fel. Farm-to-bottle nem jelszó: a mag elültetésétől az üveg lezárásáig minden a mi kezünkben van.</p>
+    <a href="farm.html" class="story-link" data-i18n="story.link">Tudj meg többet a farmunkról →</a>
   </div>
   <div class="story-image">
     <div class="ph">[ Farm fotókollázsz ]<br>képek az ültetvényről</div>
@@ -572,6 +579,7 @@ const T = {
     'story.label': 'A farm',
     'story.h2': '1 900 m² a zentai határban,<br>ahol minden csepp megterem.',
     'story.p': 'Levendula, cickafark, szalmagyopár – kis ültetvény, de minden növényt kézzel szedünk és saját laborban dolgozunk fel. Farm-to-bottle nem jelszó: a mag elültetésétől az üveg lezárásáig minden a mi kezünkben van.',
+    'story.link': 'Tudj meg többet a farmunkról →',
     'products.label': 'Termékeink',
     'products.h2': 'Amit most rendelhetsz',
     'lav.tag': 'Hidrolátum', 'lav.name': 'Levendula',
@@ -604,6 +612,7 @@ const T = {
     'story.label': 'Farma',
     'story.h2': '1 900 m² na periferiji Sente,<br>gde svaka kap izraste.',
     'story.p': 'Lavanda, hajdučka trava, smilje – mala farma, ali svaka biljka se ručno bere i prerađuje u sopstvenoj laboratoriji. Farm-to-bottle nije samo fraza: od sadnje do zatvorene bočice, sve ostaje u našim rukama.',
+    'story.link': 'Saznaj više o našoj farmi →',
     'products.label': 'Naši proizvodi',
     'products.h2': 'Dostupno sada',
     'lav.tag': 'Hidrolat', 'lav.name': 'Lavanda',
@@ -636,6 +645,7 @@ const T = {
     'story.label': 'The farm',
     'story.h2': '1,900 m² on the outskirts of Zenta,<br>where every drop is grown.',
     'story.p': 'Lavender, yarrow, helichrysum — a small farm, but every plant is hand-harvested and processed in our own lab. Farm-to-bottle isn\'t a tagline: from seed to sealed bottle, everything stays in our hands.',
+    'story.link': 'Learn more about our farm →',
     'products.label': 'Our products',
     'products.h2': 'Available now',
     'lav.tag': 'Hydrosol', 'lav.name': 'Lavender',
