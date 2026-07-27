@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A farm és a tudomány mögötte – PAUER</title>
+<meta name="description" content="PAUER farm-to-bottle: a gőzdesztilláció, a hidrolátum és a vákuum-frakcionálás tudománya – érthetően, kísérleti forrásokkal alátámasztva.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231A403A'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #faf8f2; font-family: 'Georgia', serif; color: #22271f; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    background: #1A403A;
+    padding: 18px 52px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { width: 30px; }
+  .nav-logo span { font-size: 0.95rem; letter-spacing: 0.3em; font-weight: 300; color: #fff; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .lang-switch { display: flex; gap: 12px; font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+  .lang-switch span { cursor: pointer; transition: color 0.2s; }
+  .lang-switch span:hover { color: rgba(255,255,255,0.85); }
+  .lang-switch .active { color: #fff; border-bottom: 1px solid #7aaa90; padding-bottom: 1px; }
+
+  /* HERO */
+  .farm-hero {
+    background: linear-gradient(160deg, #1A403A 0%, #0d2218 100%);
+    color: #fff; padding: 92px 32px 84px; text-align: center;
+  }
+  .farm-hero .eyebrow { font-size: 0.66rem; letter-spacing: 0.36em; text-transform: uppercase; color: #7aaa90; margin-bottom: 20px; }
+  .farm-hero h1 { font-size: 2.5rem; font-weight: 300; line-height: 1.28; max-width: 780px; margin: 0 auto 22px; }
+  .farm-hero p { font-size: 1.02rem; line-height: 1.75; color: rgba(255,255,255,0.75); max-width: 620px; margin: 0 auto; }
+
+  /* CONTENT */
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+  .block { padding: 72px 0; border-bottom: 1px solid #e7e2d6; }
+  .block:last-of-type { border-bottom: none; }
+  .block .kicker { font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; color: #1A403A; margin-bottom: 16px; }
+  .block h2 { font-size: 1.75rem; font-weight: 400; line-height: 1.35; margin-bottom: 26px; color: #1A403A; }
+  .block p { font-size: 1.03rem; line-height: 1.9; color: #3c4238; margin-bottom: 20px; }
+  .block p:last-child { margin-bottom: 0; }
+  .block .lead { font-size: 1.12rem; color: #2a3025; }
+  .fact {
+    background: #fff; border-left: 3px solid #7aaa90;
+    padding: 20px 26px; margin: 26px 0; font-size: 0.98rem; line-height: 1.75; color: #3c4238;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .fact strong { color: #1A403A; }
+  sup a { color: #1A403A; text-decoration: none; font-size: 0.72em; font-weight: bold; padding: 0 1px; }
+  sup a:hover { text-decoration: underline; }
+  .img-ph {
+    background: linear-gradient(135deg, #e9e4d6 0%, #d8d2c0 100%);
+    border: 1px dashed #b7ae95; border-radius: 4px;
+    aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;
+    color: #8a8266; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;
+    margin: 30px 0; padding: 20px;
+  }
+
+  /* REFERENCES */
+  #refs { background: #1A403A; color: #fff; padding: 70px 28px 60px; }
+  #refs .wrap { max-width: 760px; }
+  #refs h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 10px; }
+  #refs .intro { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+  #refs ol { list-style: none; counter-reset: ref; }
+  #refs li { counter-increment: ref; position: relative; padding: 14px 0 14px 40px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.88rem; line-height: 1.6; color: rgba(255,255,255,0.82); }
+  #refs li::before { content: counter(ref); position: absolute; left: 0; top: 14px; width: 26px; height: 26px; border: 1px solid #7aaa90; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: #7aaa90; }
+  #refs a { color: #a9d0ba; text-decoration: none; word-break: break-word; }
+  #refs a:hover { text-decoration: underline; color: #cfe6d8; }
+  #refs .journal { font-style: italic; color: rgba(255,255,255,0.6); }
+
+  /* FOOTER */
+  footer.site { background: #0d2218; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 28px; font-size: 0.7rem; letter-spacing: 0.14em; }
+  footer.site a { color: #a9d0ba; text-decoration: none; }
+  .back-link { display: inline-block; margin-top: 8px; }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .nav-logo span { display: none; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.62rem; letter-spacing: 0.08em; }
+    .farm-hero { padding: 64px 20px 56px; }
+    .farm-hero h1 { font-size: 1.7rem; }
+    .block { padding: 52px 0; }
+    .block h2 { font-size: 1.42rem; }
+    .block p { font-size: 0.98rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo2.jpg" alt="PAUER">
+    <span>PAUER</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products" data-i18n="nav.products">Termékeink</a></li>
+    <li><a href="farm.html" class="active" data-i18n="nav.farm">Farmunk</a></li>
+    <li><a href="index.html#order" data-i18n="nav.order">Rendelés</a></li>
+  </ul>
+  <div class="lang-switch">
+    <span onclick="setLang('hu')" data-lang="hu" class="active">HU</span>
+    <span onclick="setLang('sr')" data-lang="sr">SR</span>
+    <span onclick="setLang('en')" data-lang="en">EN</span>
+  </div>
+</nav>
+
+<section class="farm-hero">
+  <div class="eyebrow" data-i18n="h.eyebrow">Farm-to-bottle</div>
+  <h1 data-i18n="h.title">A farm – és a tudomány, ami minden cseppben ott van</h1>
+  <p data-i18n="h.sub">Nem elég szépen fogalmazni egy növényről. Meg kell érteni, mi történik benne – a szedés pillanatától az üveg lezárásáig. Ez az oldal arról szól, hogyan csináljuk, és miért éppen úgy.</p>
+</section>
+
+<div class="wrap">
+
+  <!-- 1. FARM TO BOTTLE -->
+  <div class="block">
+    <div class="kicker" data-i18n="b1.kicker">A mag elültetésétől az üveg lezárásáig</div>
+    <h2 data-i18n="b1.h">Egy 1 900 m²-es ültetvény a zentai határban</h2>
+    <p class="lead" data-i18n="b1.p1">Levendula, cickafark, szalmagyopár, citromfű – kis parcella, kézzel művelve. A „farm-to-bottle" nálunk nem marketingszó: ugyanaz a kéz ülteti, szedi és desztillálja a növényt, amelyik lezárja az üveget. Ez azt jelenti, hogy pontosan tudjuk, melyik tőről, melyik napon, milyen fázisban került a lepárlóba az, ami hozzád kerül.</p>
+    <p data-i18n="b1.p2">Ez a nyomon követhetőség nem érzelmi kérdés. A növény illóolaj-tartalma és -összetétele a genetikától, a termőhelytől, a szedés időzítésétől és a feldolgozástól függ – ezek mindegyikét egyetlen helyen tartjuk kézben.</p>
+    <div class="img-ph" data-i18n="b1.img">[ Ide jön a saját fotó: az ültetvény ]</div>
+  </div>
+
+  <!-- 2. STEAM DISTILLATION -->
+  <div class="block">
+    <div class="kicker" data-i18n="b2.kicker">A gőzdesztilláció</div>
+    <h2 data-i18n="b2.h">Hogyan lép ki a növényből az illat</h2>
+    <p data-i18n="b2.p1">A növény illóolaja apró mirigyszőrökben ül. Amikor forró vízgőzt vezetünk át a növényi anyagon, a gőz felszakítja ezeket, és magával ragadja a leginkább illékony vegyületeket – jellemzően mono- és szeszkviterpéneket, amelyek a növény saját védekező anyagai, és amelyek szinte kivétel nélkül könnyebbek a víznél. A gőz lehűtve kondenzálódik, és a víz felszínén különválik az illóolaj.<sup><a href="#r1">1</a></sup></p>
+    <div class="fact" data-i18n="b2.fact">A gőzdesztilláció a növény illékony frakciójának <strong>80–90%-át</strong> nyeri ki, és éppen az illékony észterekben és oxidokban gazdag – ezek adják az illat karakterét.<sup><a href="#r1">1</a></sup></div>
+    <p data-i18n="b2.p2">Fontos részlet, amit a laborháttér tanít meg: a desztilláció nem semleges „kiszedés". A hő közben egyes vegyületek átalakulnak – a desztilláció előrehaladtával a profil a könnyű monoterpénektől a nehezebb, tartósabb szeszkviterpének felé tolódik.<sup><a href="#r7">7</a></sup> Ezért nem mindegy, meddig hagyjuk futni: a lepárlás hossza maga is egy döntés, nem véletlen.</p>
+  </div>
+
+  <!-- 3. HARVEST TIMING -->
+  <div class="block">
+    <div class="kicker" data-i18n="b3.kicker">A szedés időzítése</div>
+    <h2 data-i18n="b3.h">Miért nem mindegy, melyik napon vágjuk le</h2>
+    <p data-i18n="b3.p1">A növény nem egyenletesen hordozza az értékét. A levendulánál például a két legfontosabb vegyület a linalool és a linalil-acetát – együtt ezek adják a jellegzetes, lágy levendulaillatot. A friss levendula illóolaj-hozama jellemzően a tömeg <strong>0,2–0,5%-a</strong>, és ez az arány a fajtától, a környezettől és a szedés időzítésétől függ.<sup><a href="#r5">5</a></sup></p>
+    <div class="fact" data-i18n="b3.fact">A kutatások szerint a legjobb minőségű levendulaolajat – a legmagasabb linalool- és linalil-acetát-tartalommal – a <strong>félvirágzás</strong> fázisában szedett növény adja. Túl korán vagy túl későn az arányok romlanak.<sup><a href="#r5">5</a></sup> A minőségi levendulaolaj linalool-tartalma jellemzően 47–64%, a linalil-acetáté 13–26%.<sup><a href="#r6">6</a></sup></p>
+    <p data-i18n="b3.p2">Ugyanez igaz a többi növényre is: a mentánál a menthol-tartalom a reggel szedett mintákban a legmagasabb, a késői, napsütéses szedés csökkenti.<sup><a href="#r7">7</a></sup> Ez az, amiért nálunk a szedés nem naptári kérdés, hanem fenológiai: a növény állapotát nézzük, nem a dátumot.</p>
+  </div>
+
+  <!-- 4. HYDROSOL -->
+  <div class="block">
+    <div class="kicker" data-i18n="b4.kicker">A hidrolátum</div>
+    <h2 data-i18n="b4.h">Nem melléktermék – önálló értékkel bíró desztillátum</h2>
+    <p data-i18n="b4.p1">A desztilláció során nemcsak illóolaj keletkezik, hanem aromás víz is – a hidrolátum. Sokan „mellékterméknek" hívják; kémiailag azonban ez egy saját jogán értékes anyag: a desztillált víz, benne az illóolaj apró cseppjeivel és – ami a lényeg – a <strong>vízoldható</strong> illékony vegyületekkel, amelyek az olajban alig vannak jelen.<sup><a href="#r3">3</a></sup></p>
+    <div class="fact" data-i18n="b4.fact">A hidrolátum jellemzően <strong>kevesebb mint 1 g/liter</strong> (0,1% alatti) vízoldható aromás vegyületet tartalmaz – főként alkoholokat, aldehideket, oxidokat és fenolos komponenseket.<sup><a href="#r3">3</a></sup> Több hidrolátumnál kísérletesen antioxidáns aktivitást és polifenol-tartalmat mértek (DPPH- és FRAP-módszerrel).<sup><a href="#r4">4</a></sup></p>
+    <p data-i18n="b4.p2">Ez a különbség magyarázza, miért más az illata és a jellege az olajnak és a hidrolátumnak, még ha ugyanabból a desztillálásból származnak is. A kettő nem ugyanaz kicsiben – kémiailag más profilú anyag.</p>
+  </div>
+
+  <!-- 5. VACUUM FRACTIONATION -->
+  <div class="block">
+    <div class="kicker" data-i18n="b5.kicker">Vákuum-frakcionálás</div>
+    <h2 data-i18n="b5.h">Amikor a nyers olajból tiszta izolátum lesz</h2>
+    <p data-i18n="b5.p1">A nyers illóolaj több tucat vegyület keveréke. Ha egyetlen értékes komponenst szeretnénk kiemelni – például dúsítani a linaloolt vagy elkülöníteni egy prémium izolátumot –, csökkentett nyomáson desztillálunk. A vákuum leviszi a vegyületek forráspontját, így alacsonyabb hőmérsékleten dolgozhatunk.</p>
+    <div class="fact" data-i18n="b5.fact">A vákuum-frakcionálás előnye pontosan a kímélet: mivel alacsonyabb hőmérsékleten zajlik, a hőérzékeny vegyületek alig bomlanak – vizsgálatokban <strong>nem mutattak ki hődegradációt</strong>.<sup><a href="#r8">8</a></sup> A könnyű terpének (α-pinén, mircén) a kolonna tetején távoznak, az értékes oxigéntartalmú vegyületek (linalool, geraniol, borneol) alul maradnak. Így a linalool aránya levendulaolajban kísérletesen ~28%-ról 35% fölé emelhető.<sup><a href="#r9">9</a></sup></p>
+    <p data-i18n="b5.p2">Ez a lépés az, ami a farmot laborrá teszi: nem csak lepárolunk, hanem a nyers desztillátumból célzottan állítunk elő tisztább, magasabb értékű frakciókat – ugyanazzal az elvvel, amit a szakirodalom rozmaring-, narancs- és levendulaolajon is igazolt.<sup><a href="#r8">8</a></sup></p>
+  </div>
+
+</div>
+
+<!-- REFERENCES -->
+<section id="refs">
+  <div class="wrap">
+    <h2 data-i18n="refs.h">Tudományos háttér</h2>
+    <p class="intro" data-i18n="refs.intro">Az ezen az oldalon szereplő állítások mögött szakértői lektorálású (peer-reviewed) kutatások állnak. Az alábbi forrásokat mi is használjuk – ha valaki mélyebben szeretné megérteni, itt olvashat utána. Nem kérünk hitet: kísérleti adatot mutatunk.</p>
+    <ol>
+      <li id="r1"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9457539/" target="_blank" rel="noopener">Extraction of Camphor Tree Essential Oil by Steam Distillation and Supercritical CO₂ Extraction.</a> <span class="journal">Molecules / PMC9457539.</span></li>
+      <li id="r2"><a href="https://www.mdpi.com/2071-1050/14/12/7119" target="_blank" rel="noopener">Steam Distillation for Essential Oil Extraction: An Evaluation of Technological Advances.</a> <span class="journal">Sustainability, MDPI, 2022.</span></li>
+      <li id="r3"><a href="https://link.springer.com/article/10.1007/s11101-022-09803-6" target="_blank" rel="noopener">Hydrolates: a review on their volatiles composition, biological properties and potential uses.</a> <span class="journal">Phytochemistry Reviews, Springer, 2022.</span></li>
+      <li id="r4"><a href="https://www.sciencedirect.com/science/article/pii/S0753332221008167" target="_blank" rel="noopener">Plant hydrolates – Antioxidant properties, chemical composition and potential applications.</a> <span class="journal">Biomedicine &amp; Pharmacotherapy, 2021 (PubMed 34416628).</span></li>
+      <li id="r5"><a href="https://www.mdpi.com/2673-9488/5/1/11" target="_blank" rel="noopener">How Biological and Environmental Factors Affect the Quality of Lavender Essential Oils.</a> <span class="journal">Compounds, MDPI.</span></li>
+      <li id="r6"><a href="http://pse.agriculturejournals.cz/artkey/pse-202402-0006_chemical-composition-and-antimicrobial-activity-of-essential-oils-from-six-lavender-lavandula-angustifolia-mil.php" target="_blank" rel="noopener">Chemical composition and antimicrobial activity of essential oils from six lavender cultivars.</a> <span class="journal">Plant, Soil and Environment, 2024.</span></li>
+      <li id="r7"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10675317/" target="_blank" rel="noopener">Effects of Harvest Time and Hydrodistillation Time on Yield, Composition, and Antioxidant Activity of Mint Essential Oil.</a> <span class="journal">Molecules / PMC10675317.</span></li>
+      <li id="r8"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6838235/" target="_blank" rel="noopener">Fractionation of rosemary (Rosmarinus officinalis L.) essential oil using vacuum fractional distillation.</a> <span class="journal">Journal of Food Science and Technology, Springer, 2019.</span></li>
+      <li id="r9"><a href="https://www.sciencedirect.com/science/article/pii/S2950357425001362" target="_blank" rel="noopener">Vacuum fractional distillation of essential oils: Enrichment and purification of bioactive constituents.</a> <span class="journal">2025.</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer class="site">
+  © 2026 PAUER · <span data-i18n="foot.tag">farm-to-bottle · Zenta</span>
+  <br>
+  <a href="index.html" class="back-link" data-i18n="foot.back">← Vissza a főoldalra</a>
+</footer>
+
+<script>
+const T = {
+  hu: {
+    'nav.products':'Termékeink','nav.farm':'Farmunk','nav.order':'Rendelés',
+    'h.eyebrow':'Farm-to-bottle',
+    'h.title':'A farm – és a tudomány, ami minden cseppben ott van',
+    'h.sub':'Nem elég szépen fogalmazni egy növényről. Meg kell érteni, mi történik benne – a szedés pillanatától az üveg lezárásáig. Ez az oldal arról szól, hogyan csináljuk, és miért éppen úgy.',
+    'b1.kicker':'A mag elültetésétől az üveg lezárásáig',
+    'b1.h':'Egy 1 900 m²-es ültetvény a zentai határban',
+    'b1.p1':'Levendula, cickafark, szalmagyopár, citromfű – kis parcella, kézzel művelve. A „farm-to-bottle" nálunk nem marketingszó: ugyanaz a kéz ülteti, szedi és desztillálja a növényt, amelyik lezárja az üveget. Ez azt jelenti, hogy pontosan tudjuk, melyik tőről, melyik napon, milyen fázisban került a lepárlóba az, ami hozzád kerül.',
+    'b1.p2':'Ez a nyomon követhetőség nem érzelmi kérdés. A növény illóolaj-tartalma és -összetétele a genetikától, a termőhelytől, a szedés időzítésétől és a feldolgozástól függ – ezek mindegyikét egyetlen helyen tartjuk kézben.',
+    'b1.img':'[ Ide jön a saját fotó: az ültetvény ]',
+    'b2.kicker':'A gőzdesztilláció',
+    'b2.h':'Hogyan lép ki a növényből az illat',
+    'b2.p1':'A növény illóolaja apró mirigyszőrökben ül. Amikor forró vízgőzt vezetünk át a növényi anyagon, a gőz felszakítja ezeket, és magával ragadja a leginkább illékony vegyületeket – jellemzően mono- és szeszkviterpéneket, amelyek a növény saját védekező anyagai, és amelyek szinte kivétel nélkül könnyebbek a víznél. A gőz lehűtve kondenzálódik, és a víz felszínén különválik az illóolaj.',
+    'b2.fact':'A gőzdesztilláció a növény illékony frakciójának <strong>80–90%-át</strong> nyeri ki, és éppen az illékony észterekben és oxidokban gazdag – ezek adják az illat karakterét.',
+    'b2.p2':'Fontos részlet, amit a laborháttér tanít meg: a desztilláció nem semleges „kiszedés". A hő közben egyes vegyületek átalakulnak – a desztilláció előrehaladtával a profil a könnyű monoterpénektől a nehezebb, tartósabb szeszkviterpének felé tolódik. Ezért nem mindegy, meddig hagyjuk futni: a lepárlás hossza maga is egy döntés, nem véletlen.',
+    'b3.kicker':'A szedés időzítése',
+    'b3.h':'Miért nem mindegy, melyik napon vágjuk le',
+    'b3.p1':'A növény nem egyenletesen hordozza az értékét. A levendulánál például a két legfontosabb vegyület a linalool és a linalil-acetát – együtt ezek adják a jellegzetes, lágy levendulaillatot. A friss levendula illóolaj-hozama jellemzően a tömeg <strong>0,2–0,5%-a</strong>, és ez az arány a fajtától, a környezettől és a szedés időzítésétől függ.',
+    'b3.fact':'A kutatások szerint a legjobb minőségű levendulaolajat – a legmagasabb linalool- és linalil-acetát-tartalommal – a <strong>félvirágzás</strong> fázisában szedett növény adja. Túl korán vagy túl későn az arányok romlanak. A minőségi levendulaolaj linalool-tartalma jellemzően 47–64%, a linalil-acetáté 13–26%.',
+    'b3.p2':'Ugyanez igaz a többi növényre is: a mentánál a menthol-tartalom a reggel szedett mintákban a legmagasabb, a késői, napsütéses szedés csökkenti. Ez az, amiért nálunk a szedés nem naptári kérdés, hanem fenológiai: a növény állapotát nézzük, nem a dátumot.',
+    'b4.kicker':'A hidrolátum',
+    'b4.h':'Nem melléktermék – önálló értékkel bíró desztillátum',
+    'b4.p1':'A desztilláció során nemcsak illóolaj keletkezik, hanem aromás víz is – a hidrolátum. Sokan „mellékterméknek" hívják; kémiailag azonban ez egy saját jogán értékes anyag: a desztillált víz, benne az illóolaj apró cseppjeivel és – ami a lényeg – a <strong>vízoldható</strong> illékony vegyületekkel, amelyek az olajban alig vannak jelen.',
+    'b4.fact':'A hidrolátum jellemzően <strong>kevesebb mint 1 g/liter</strong> (0,1% alatti) vízoldható aromás vegyületet tartalmaz – főként alkoholokat, aldehideket, oxidokat és fenolos komponenseket. Több hidrolátumnál kísérletesen antioxidáns aktivitást és polifenol-tartalmat mértek (DPPH- és FRAP-módszerrel).',
+    'b4.p2':'Ez a különbség magyarázza, miért más az illata és a jellege az olajnak és a hidrolátumnak, még ha ugyanabból a desztillálásból származnak is. A kettő nem ugyanaz kicsiben – kémiailag más profilú anyag.',
+    'b5.kicker':'Vákuum-frakcionálás',
+    'b5.h':'Amikor a nyers olajból tiszta izolátum lesz',
+    'b5.p1':'A nyers illóolaj több tucat vegyület keveréke. Ha egyetlen értékes komponenst szeretnénk kiemelni – például dúsítani a linaloolt vagy elkülöníteni egy prémium izolátumot –, csökkentett nyomáson desztillálunk. A vákuum leviszi a vegyületek forráspontját, így alacsonyabb hőmérsékleten dolgozhatunk.',
+    'b5.fact':'A vákuum-frakcionálás előnye pontosan a kímélet: mivel alacsonyabb hőmérsékleten zajlik, a hőérzékeny vegyületek alig bomlanak – vizsgálatokban <strong>nem mutattak ki hődegradációt</strong>. A könnyű terpének (α-pinén, mircén) a kolonna tetején távoznak, az értékes oxigéntartalmú vegyületek (linalool, geraniol, borneol) alul maradnak. Így a linalool aránya levendulaolajban kísérletesen ~28%-ról 35% fölé emelhető.',
+    'b5.p2':'Ez a lépés az, ami a farmot laborrá teszi: nem csak lepárolunk, hanem a nyers desztillátumból célzottan állítunk elő tisztább, magasabb értékű frakciókat – ugyanazzal az elvvel, amit a szakirodalom rozmaring-, narancs- és levendulaolajon is igazolt.',
+    'refs.h':'Tudományos háttér',
+    'refs.intro':'Az ezen az oldalon szereplő állítások mögött szakértői lektorálású (peer-reviewed) kutatások állnak. Az alábbi forrásokat mi is használjuk – ha valaki mélyebben szeretné megérteni, itt olvashat utána. Nem kérünk hitet: kísérleti adatot mutatunk.',
+    'foot.tag':'farm-to-bottle · Zenta',
+    'foot.back':'← Vissza a főoldalra',
+  },
+  sr: {
+    'nav.products':'Proizvodi','nav.farm':'Naša farma','nav.order':'Narudžbina',
+    'h.eyebrow':'Farm-to-bottle',
+    'h.title':'Farma – i nauka koja stoji u svakoj kapi',
+    'h.sub':'Nije dovoljno lepo pisati o biljci. Treba razumeti šta se u njoj dešava – od trenutka berbe do zatvorene bočice. Ova strana govori o tome kako radimo i zašto baš tako.',
+    'b1.kicker':'Od sadnje do zatvorene bočice',
+    'b1.h':'Plantaža od 1 900 m² na periferiji Sente',
+    'b1.p1':'Lavanda, hajdučka trava, smilje, matičnjak – mala parcela, obrađena ručno. „Farm-to-bottle" kod nas nije marketinška fraza: ista ruka sadi, bere i destiluje biljku koja zatvara bočicu. To znači da tačno znamo sa kog žbuna, kog dana i u kojoj fazi je u destilator ušlo ono što dolazi do vas.',
+    'b1.p2':'Ova sledljivost nije emotivno pitanje. Sadržaj i sastav etarskog ulja zavise od genetike, staništa, vremena berbe i prerade – a sve to držimo pod kontrolom na jednom mestu.',
+    'b1.img':'[ Ovde ide sopstvena fotografija: plantaža ]',
+    'b2.kicker':'Destilacija vodenom parom',
+    'b2.h':'Kako miris izlazi iz biljke',
+    'b2.p1':'Etarsko ulje biljke nalazi se u sitnim žlezdanim dlačicama. Kada kroz biljni materijal provedemo vrelu vodenu paru, para ih razbija i nosi sa sobom najisparljivija jedinjenja – uglavnom mono- i seskviterpene, koji su sopstvene odbrambene materije biljke i gotovo bez izuzetka lakši od vode. Para se hlađenjem kondenzuje, i na površini vode izdvaja se etarsko ulje.',
+    'b2.fact':'Destilacija vodenom parom izdvaja <strong>80–90%</strong> isparljive frakcije biljke, i bogata je upravo isparljivim estrima i oksidima – oni daju karakter mirisa.',
+    'b2.p2':'Važan detalj koji uči laboratorijsko iskustvo: destilacija nije neutralno „vađenje". Tokom zagrevanja neka jedinjenja se transformišu – kako destilacija odmiče, profil se pomera od lakih monoterpena ka težim, postojanijim seskviterpenima. Zato nije svejedno koliko dugo je puštamo: dužina destilacije je i sama odluka, ne slučajnost.',
+    'b3.kicker':'Vreme berbe',
+    'b3.h':'Zašto nije svejedno kog dana beremo',
+    'b3.p1':'Biljka ne nosi svoju vrednost ravnomerno. Kod lavande su, na primer, dva najvažnija jedinjenja linalol i linalil-acetat – zajedno daju prepoznatljiv, blag miris lavande. Prinos etarskog ulja sveže lavande obično je <strong>0,2–0,5%</strong> mase, a taj odnos zavisi od sorte, okoline i vremena berbe.',
+    'b3.fact':'Prema istraživanjima, najkvalitetnije ulje lavande – sa najvišim sadržajem linalola i linalil-acetata – daje biljka ubrana u fazi <strong>polucvetanja</strong>. Prerano ili prekasno, odnosi se kvare. Sadržaj linalola u kvalitetnom ulju lavande obično je 47–64%, a linalil-acetata 13–26%.',
+    'b3.p2':'Isto važi i za druge biljke: kod nane je sadržaj mentola najviši u uzorcima branim ujutru, a kasnija berba na suncu ga smanjuje. Zato kod nas berba nije pitanje kalendara, već fenologije: gledamo stanje biljke, a ne datum.',
+    'b4.kicker':'Hidrolat',
+    'b4.h':'Nije sporedni proizvod – destilat sa sopstvenom vrednošću',
+    'b4.p1':'Tokom destilacije ne nastaje samo etarsko ulje, već i aromatična voda – hidrolat. Mnogi ga zovu „sporednim proizvodom"; hemijski, međutim, to je materija vredna po sebi: destilovana voda sa sitnim kapima etarskog ulja i – što je ključno – sa <strong>vodorastvorljivim</strong> isparljivim jedinjenjima, kojih u ulju gotovo da nema.',
+    'b4.fact':'Hidrolat obično sadrži <strong>manje od 1 g/litar</strong> (ispod 0,1%) vodorastvorljivih aromatičnih jedinjenja – uglavnom alkohole, aldehide, okside i fenolne komponente. Kod više hidrolata je eksperimentalno izmerena antioksidativna aktivnost i sadržaj polifenola (DPPH i FRAP metodom).',
+    'b4.p2':'Ta razlika objašnjava zašto ulje i hidrolat imaju drugačiji miris i karakter, iako potiču iz iste destilacije. To dvoje nije isto u malom – hemijski je to materija drugačijeg profila.',
+    'b5.kicker':'Vakuum-frakcionisanje',
+    'b5.h':'Kada od sirovog ulja nastane čist izolat',
+    'b5.p1':'Sirovo etarsko ulje je smesa desetina jedinjenja. Ako želimo da izdvojimo jednu vrednu komponentu – na primer da obogatimo linalol ili odvojimo premium izolat – destilujemo pod sniženim pritiskom. Vakuum snižava tačku ključanja jedinjenja, pa možemo raditi na nižoj temperaturi.',
+    'b5.fact':'Prednost vakuum-frakcionisanja je upravo blagost: pošto se odvija na nižoj temperaturi, jedinjenja osetljiva na toplotu se jedva razgrađuju – u ispitivanjima <strong>nije zabeležena termička degradacija</strong>. Laki terpeni (α-pinen, micen) izlaze na vrhu kolone, a vredna jedinjenja sa kiseonikom (linalol, geraniol, borneol) ostaju na dnu. Tako se udeo linalola u ulju lavande eksperimentalno može podići sa ~28% na preko 35%.',
+    'b5.p2':'Taj korak je ono što farmu čini laboratorijom: ne samo da destilujemo, već iz sirovog destilata ciljano proizvodimo čistije, vrednije frakcije – istim principom koji je stručna literatura potvrdila na ulju ruzmarina, narandže i lavande.',
+    'refs.h':'Naučna osnova',
+    'refs.intro':'Iza tvrdnji na ovoj strani stoje recenzirana (peer-reviewed) istraživanja. Ove izvore i sami koristimo – ko želi dublje da razume, ovde može da pročita. Ne tražimo veru: pokazujemo eksperimentalne podatke.',
+    'foot.tag':'farm-to-bottle · Senta',
+    'foot.back':'← Nazad na početnu',
+  },
+  en: {
+    'nav.products':'Products','nav.farm':'Our Farm','nav.order':'Order',
+    'h.eyebrow':'Farm-to-bottle',
+    'h.title':'The farm — and the science in every drop',
+    'h.sub':'Writing beautifully about a plant is not enough. You have to understand what happens inside it — from the moment of harvest to the sealed bottle. This page is about how we do it, and why exactly this way.',
+    'b1.kicker':'From planting the seed to sealing the bottle',
+    'b1.h':'A 1,900 m² plantation on the outskirts of Zenta',
+    'b1.p1':'Lavender, yarrow, helichrysum, lemon balm — a small plot, worked by hand. "Farm-to-bottle" is not a marketing word for us: the same hand that plants, harvests and distills the plant is the one that seals the bottle. That means we know exactly which plant, which day and which growth stage went into the still that reaches you.',
+    'b1.p2':'This traceability is not sentimental. A plant\'s essential oil content and composition depend on genetics, terroir, harvest timing and processing — and we keep every one of these in a single pair of hands.',
+    'b1.img':'[ Your own photo goes here: the plantation ]',
+    'b2.kicker':'Steam distillation',
+    'b2.h':'How the aroma leaves the plant',
+    'b2.p1':'A plant\'s essential oil sits in tiny glandular hairs. When we pass hot steam through the plant material, the steam ruptures them and carries off the most volatile compounds — typically mono- and sesquiterpenes, the plant\'s own defensive substances, almost all lighter than water. Cooled, the steam condenses, and the essential oil separates on the surface of the water.',
+    'b2.fact':'Steam distillation recovers <strong>80–90%</strong> of the plant\'s volatile fraction, and is rich precisely in the volatile esters and oxides that give the aroma its character.',
+    'b2.p2':'An important detail that a lab background teaches: distillation is not a neutral "extraction." Under heat, some compounds transform — as distillation proceeds, the profile shifts from light monoterpenes toward heavier, more persistent sesquiterpenes. So how long we let it run is itself a decision, not chance.',
+    'b3.kicker':'Harvest timing',
+    'b3.h':'Why the day we cut it matters',
+    'b3.p1':'A plant does not carry its value evenly. In lavender, for instance, the two most important compounds are linalool and linalyl acetate — together they give that soft, characteristic lavender scent. Fresh lavender typically yields <strong>0.2–0.5%</strong> essential oil by weight, and this ratio depends on cultivar, environment and harvest timing.',
+    'b3.fact':'Research shows the highest-quality lavender oil — with the highest linalool and linalyl acetate content — comes from plants harvested at <strong>mid-flowering</strong>. Too early or too late, the ratios decline. In quality lavender oil, linalool is typically 47–64% and linalyl acetate 13–26%.',
+    'b3.p2':'The same holds for other plants: in mint, menthol content is highest in morning-harvested samples and declines with later, sunlit harvesting. That is why, for us, harvest is not a matter of the calendar but of phenology: we read the plant\'s state, not the date.',
+    'b4.kicker':'The hydrosol',
+    'b4.h':'Not a by-product — a distillate with value of its own',
+    'b4.p1':'Distillation produces not only essential oil but also an aromatic water — the hydrosol. Many call it a "by-product"; chemically, however, it is a substance valuable in its own right: distilled water carrying tiny droplets of essential oil and — crucially — the <strong>water-soluble</strong> volatile compounds that are barely present in the oil.',
+    'b4.fact':'A hydrosol typically contains <strong>less than 1 g/litre</strong> (below 0.1%) of water-soluble aromatic compounds — mainly alcohols, aldehydes, oxides and phenolic components. In several hydrosols, antioxidant activity and polyphenol content have been measured experimentally (by DPPH and FRAP methods).',
+    'b4.p2':'This difference explains why oil and hydrosol have a different scent and character, even when they come from the same distillation. The two are not the same thing at a smaller scale — chemically, they are substances of different profiles.',
+    'b5.kicker':'Vacuum fractionation',
+    'b5.h':'When raw oil becomes a pure isolate',
+    'b5.p1':'Raw essential oil is a mixture of dozens of compounds. To bring out a single valuable component — to enrich linalool, say, or isolate a premium fraction — we distill under reduced pressure. The vacuum lowers the compounds\' boiling points, letting us work at a lower temperature.',
+    'b5.fact':'The advantage of vacuum fractionation is exactly its gentleness: because it runs at a lower temperature, heat-sensitive compounds barely degrade — studies found <strong>no thermal degradation</strong>. Light terpenes (α-pinene, myrcene) leave at the top of the column, while valuable oxygenated compounds (linalool, geraniol, borneol) remain at the bottom. Thus linalool in lavender oil can be raised experimentally from ~28% to over 35%.',
+    'b5.p2':'This step is what turns a farm into a lab: we do not merely distill, but deliberately produce cleaner, higher-value fractions from the raw distillate — by the same principle the literature has confirmed on rosemary, orange and lavender oils.',
+    'refs.h':'The science behind it',
+    'refs.intro':'The claims on this page are backed by peer-reviewed research. These are the sources we ourselves draw on — anyone who wants to understand more deeply can read further here. We do not ask for belief: we show experimental data.',
+    'foot.tag':'farm-to-bottle · Senta',
+    'foot.back':'← Back to home',
+  }
+};
+
+function setLang(lang){
+  localStorage.setItem('pauer-lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.dataset.i18n;
+    if (T[lang] && T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.lang-switch span').forEach(s=>{
+    s.classList.toggle('active', s.dataset.lang === lang);
+  });
+  document.documentElement.lang = lang;
+}
+const saved = localStorage.getItem('pauer-lang') || 'hu';
+if (saved !== 'hu') setLang(saved);
+</script>
+
+</body>
+</html>
