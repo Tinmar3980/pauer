@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAUER – Website Mockup</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; font-family: 'Georgia', serif; color: #fff; overflow-x: hidden; }
+
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* ── HERO ── */
+  #hero {
+    height: 100vh; width: 100%; position: relative; overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.1s forwards;
+  }
+
+  .hero-video-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #0d2218 0%, #1A403A 40%, #071409 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-video-bg .placeholder-text {
+    font-size: 0.7rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.12);
+    text-transform: uppercase; text-align: center; line-height: 2;
+  }
+  .hero-video-bg video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.55) 100%);
+  }
+
+  nav {
+    position: absolute; top: 0; left: 0; right: 0;
+    padding: 28px 52px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 10;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo img { width: 34px; }
+  .nav-logo span { font-size: 1rem; letter-spacing: 0.3em; font-weight: 300; }
+  .nav-links { display: flex; gap: 38px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.82); text-decoration: none;
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .lang-switch { display: flex; gap: 12px; font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+  .lang-switch span { cursor: pointer; transition: color 0.2s; }
+  .lang-switch span:hover { color: rgba(255,255,255,0.8); }
+  .lang-switch .active { color: #fff; border-bottom: 1px solid #7aaa90; padding-bottom: 1px; }
+
+  .hero-content {
+    position: absolute; bottom: 13%; left: 50%; transform: translateX(-50%);
+    text-align: center; width: 100%;
+  }
+  .hero-content .eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.38em; text-transform: uppercase;
+    color: #7aaa90; margin-bottom: 18px;
+  }
+  .hero-content h1 {
+    font-size: 2.6rem; font-weight: 300; letter-spacing: 0.04em; line-height: 1.3;
+  }
+
+  .scroll-indicator {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .scroll-indicator::after {
+    content: ''; width: 1px; height: 44px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+  }
+
+  /* ── FARM STORY ── */
+  #story {
+    display: grid; grid-template-columns: 1fr 1fr; min-height: 85vh;
+  }
+  .story-text {
+    background: #f7f3ed;
+    padding: 100px 72px;
+    display: flex; flex-direction: column; justify-content: center;
+    color: #1a1a1a;
+  }
+  .story-text .label {
+    font-size: 0.65rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: #1A403A; margin-bottom: 22px;
+  }
+  .story-text h2 {
+    font-size: 2.1rem; font-weight: 300; line-height: 1.38; margin-bottom: 26px;
+  }
+  .story-text p {
+    font-size: 0.98rem; line-height: 1.85; color: #5a5a5a; max-width: 400px;
+  }
+  .story-image {
+    background: linear-gradient(135deg, #1A403A 0%, #0d2218 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .story-image .ph {
+    font-size: 0.65rem; letter-spacing: 0.22em; color: rgba(255,255,255,0.18);
+    text-transform: uppercase; text-align: center; line-height: 2;
+  }
+
+  /* ── PRODUCTS ── */
+  #products {
+    background: #fff; padding: 100px 64px;
+    text-align: center;
+  }
+  #products .section-label {
+    font-size: 0.65rem; letter-spacing: 0.32em; text-transform: uppercase;
+    color: #1A403A; margin-bottom: 14px;
+  }
+  #products h2 { font-size: 1.9rem; font-weight: 300; margin-bottom: 64px; color: #111; }
+
+  .product-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px; max-width: 1080px; margin: 0 auto;
+  }
+
+  .product-card {
+    background: #fff;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+    cursor: pointer; text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .product-card:hover { transform: translateY(-7px); box-shadow: 0 14px 44px rgba(0,0,0,0.13); }
+
+  .plant-illustration {
+    width: 100%; aspect-ratio: 3/4;
+    background: #1A403A;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .plant-illustration svg { width: 75%; height: 85%; }
+  .plant-illustration::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 15%, rgba(255,255,255,0.05) 0%, transparent 55%);
+  }
+
+  .card-yarrow   .plant-illustration { background: #1e3a12; }
+  .card-melissa  .plant-illustration { background: #143828; }
+  .card-helichrysum .plant-illustration { background: #2a3510; }
+  .card-mint     .plant-illustration { background: #0f3a2c; }
+  .card-rosemary .plant-illustration { background: #24391b; }
+
+  .card-body { padding: 20px 20px 24px; border-top: 1px solid #eee; }
+  .card-tag { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: #1A403A; margin-bottom: 5px; }
+  .card-body h3 { font-size: 1rem; font-weight: 400; margin-bottom: 3px; color: #111; }
+  .card-body .latin { font-size: 0.72rem; color: #aaa; font-style: italic; margin-bottom: 9px; }
+  .card-body .sizes { font-size: 0.7rem; color: #777; }
+  .card-body .price { font-size: 0.98rem; color: #1A403A; margin-top: 10px; letter-spacing: 0.04em; }
+  .card-body .price small { display: block; color: #999; font-size: 0.66rem; letter-spacing: 0.03em; margin-top: 3px; }
+  .order-btn {
+    display: inline-block; margin-top: 14px; padding: 8px 18px;
+    border: 1px solid #1A403A; font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #1A403A; cursor: pointer;
+    background: transparent; transition: all 0.2s; font-family: 'Georgia', serif;
+  }
+  .order-btn:hover { background: #1A403A; color: #fff; }
+
+  /* ── RESZPONZÍV ── */
+  @media (max-width: 1024px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); max-width: 680px; }
+    #story { grid-template-columns: 1fr; }
+    .story-text { padding: 72px 40px; }
+    .story-image { min-height: 340px; }
+    nav { padding: 22px 26px; }
+    .nav-links { gap: 24px; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 16px 16px; }
+    .nav-logo span { display: none; }
+    .nav-links { gap: 15px; }
+    .nav-links a { font-size: 0.64rem; letter-spacing: 0.08em; }
+    .lang-switch { gap: 8px; }
+    .hero-content { bottom: 15%; padding: 0 20px; }
+    .hero-content h1 { font-size: 1.65rem; }
+    .hero-content .eyebrow { font-size: 0.58rem; letter-spacing: 0.26em; }
+    .story-text { padding: 56px 26px; }
+    .story-text h2 { font-size: 1.6rem; }
+    #products { padding: 72px 22px; }
+    #products h2 { font-size: 1.5rem; margin-bottom: 44px; }
+    .product-grid { grid-template-columns: 1fr; max-width: 330px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-video-bg">
+    <div class="placeholder-text">[ Farm videó itt játszik – hero.mp4 ]<br>levendula · cickafark · szalmagyopár</div>
+    <video src="hero.mp4" autoplay muted loop playsinline></video>
+  </div>
+  <div class="hero-overlay"></div>
+  <nav>
+    <div class="nav-logo">
+      <img src="logo2.jpg" alt="PAUER">
+      <span>PAUER</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" data-i18n="nav.products">Termékeink</a></li>
+      <li><a href="#" data-i18n="nav.farm">Farmunk</a></li>
+      <li><a href="#" data-i18n="nav.order">Rendelés</a></li>
+    </ul>
+    <div class="lang-switch">
+      <span onclick="setLang('hu')" data-lang="hu" class="active">HU</span>
+      <span onclick="setLang('sr')" data-lang="sr">SR</span>
+      <span onclick="setLang('en')" data-lang="en">EN</span>
+    </div>
+  </nav>
+  <div class="hero-content">
+    <div class="eyebrow" data-i18n="hero.eyebrow">Természetes · Kézzel szedett · Desztillált</div>
+    <h1 data-i18n="hero.h1">Illóolajak és hidrolátumok<br>a zentai ültetvényről</h1>
+  </div>
+  <div class="scroll-indicator" data-i18n="scroll">Görgess</div>
+</section>
+
+<!-- FARM STORY -->
+<section id="story">
+  <div class="story-text">
+    <div class="label" data-i18n="story.label">A farm</div>
+    <h2 data-i18n="story.h2">1 900 m² a zentai határban,<br>ahol minden csepp megterem.</h2>
+    <p data-i18n="story.p">Levendula, cickafark, szalmagyopár – kis ültetvény, de minden növényt kézzel szedünk és saját laborban dolgozunk fel. Farm-to-bottle nem jelszó: a mag elültetésétől az üveg lezárásáig minden a mi kezünkben van.</p>
+  </div>
+  <div class="story-image">
+    <div class="ph">[ Farm fotókollázsz ]<br>képek az ültetvényről</div>
+  </div>
+</section>
+
+<!-- TERMÉKEK -->
+<section id="products">
+  <div class="section-label" data-i18n="products.label">Termékeink</div>
+  <h2 data-i18n="products.h2">Amit most rendelhetsz</h2>
+  <div class="product-grid">
+
+    <!-- LEVENDULA -->
+    <div class="product-card card-lavender">
+      <div class="plant-illustration">
+        <svg viewBox="0 0 120 180" fill="none">
+          <line x1="60" y1="170" x2="60" y2="90" stroke="rgba(255,255,255,0.9)" stroke-width="1.4"/>
+          <line x1="60" y1="140" x2="40" y2="110" stroke="rgba(255,255,255,0.7)" stroke-width="1.1"/>
+          <line x1="60" y1="140" x2="80" y2="108" stroke="rgba(255,255,255,0.7)" stroke-width="1.1"/>
+          <line x1="60" y1="125" x2="44" y2="100" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+          <line x1="60" y1="125" x2="76" y2="98" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+          <ellipse cx="60" cy="62" rx="4" ry="6" stroke="rgba(255,255,255,0.9)" stroke-width="0.8" fill="rgba(255,255,255,0.08)"/>
+          <ellipse cx="60" cy="72" rx="4.5" ry="5" stroke="rgba(255,255,255,0.9)" stroke-width="0.8" fill="rgba(255,255,255,0.08)"/>
+          <ellipse cx="60" cy="82" rx="4" ry="4.5" stroke="rgba(255,255,255,0.85)" stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+          <ellipse cx="56" cy="58" rx="2.5" ry="3.5" stroke="rgba(255,255,255,0.6)" stroke-width="0.7" fill="rgba(255,255,255,0.05)" transform="rotate(-15,56,58)"/>
+          <ellipse cx="64" cy="58" rx="2.5" ry="3.5" stroke="rgba(255,255,255,0.6)" stroke-width="0.7" fill="rgba(255,255,255,0.05)" transform="rotate(15,64,58)"/>
+          <ellipse cx="55" cy="68" rx="2.5" ry="3" stroke="rgba(255,255,255,0.55)" stroke-width="0.7" fill="rgba(255,255,255,0.04)" transform="rotate(-20,55,68)"/>
+          <ellipse cx="65" cy="68" rx="2.5" ry="3" stroke="rgba(255,255,255,0.55)" stroke-width="0.7" fill="rgba(255,255,255,0.04)" transform="rotate(20,65,68)"/>
+          <ellipse cx="60" cy="52" rx="2.5" ry="4" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+          <ellipse cx="60" cy="45" rx="2" ry="3.5" stroke="rgba(255,255,255,0.5)" stroke-width="0.7" fill="rgba(255,255,255,0.04)"/>
+          <line x1="40" y1="110" x2="40" y2="88" stroke="rgba(255,255,255,0.65)" stroke-width="1"/>
+          <ellipse cx="40" cy="78" rx="3" ry="5" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" fill="rgba(255,255,255,0.06)"/>
+          <ellipse cx="40" cy="70" rx="2.5" ry="4" stroke="rgba(255,255,255,0.55)" stroke-width="0.7" fill="rgba(255,255,255,0.04)"/>
+          <line x1="80" y1="108" x2="80" y2="86" stroke="rgba(255,255,255,0.65)" stroke-width="1"/>
+          <ellipse cx="80" cy="76" rx="3" ry="5" stroke="rgba(255,255,255,0.65)" stroke-width="0.7" fill="rgba(255,255,255,0.06)"/>
+          <ellipse cx="80" cy="68" rx="2.5" ry="4" stroke="rgba(255,255,255,0.55)" stroke-width="0.7" fill="rgba(255,255,255,0.04)"/>
+          <path d="M60 155 Q48 148 44 140" stroke="rgba(255,255,255,0.5)" stroke-width="0.9" fill="none"/>
+          <path d="M60 155 Q72 148 76 140" stroke="rgba(255,255,255,0.5)" stroke-width="0.9" fill="none"/>
+          <path d="M60 145 Q46 136 42 126" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" fill="none"/>
+          <path d="M60 145 Q74 136 78 126" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" fill="none"/>
+          <text x="60" y="175" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="Georgia" font-style="italic">Lavandula angustifolia</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" data-i18n="lav.tag">Hidrolátum</div>
+        <h3 data-i18n="lav.name">Levendula</h3>
+        <div class="latin">Lavandula angustifolia</div>
+        <div class="sizes" data-i18n="lav.sizes">100 ml sötét üveg, szórófejes</div>
+        <div class="price" data-i18n="lav.price">500 RSD · 100 ml<small>500 ml utántöltő · 1 000 RSD</small></div>
+        <button class="order-btn" data-i18n="btn.order">Rendelés</button>
+      </div>
+    </div>
+
+    <!-- CICKAFARK -->
+    <div class="product-card card-yarrow">
+      <div class="plant-illustration">
+        <svg viewBox="0 0 120 180" fill="none">
+          <line x1="60" y1="170" x2="60" y2="55" stroke="rgba(255,255,255,0.85)" stroke-width="1.4"/>
+          <line x1="60" y1="55" x2="35" y2="40" stroke="rgba(255,255,255,0.75)" stroke-width="1"/>
+          <line x1="60" y1="55" x2="85" y2="40" stroke="rgba(255,255,255,0.75)" stroke-width="1"/>
+          <line x1="60" y1="55" x2="22" y2="48" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <line x1="60" y1="55" x2="98" y2="48" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <line x1="60" y1="55" x2="48" y2="36" stroke="rgba(255,255,255,0.7)" stroke-width="0.9"/>
+          <line x1="60" y1="55" x2="72" y2="36" stroke="rgba(255,255,255,0.7)" stroke-width="0.9"/>
+          <circle cx="60" cy="30" r="9" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" fill="rgba(255,255,255,0.04)"/>
+          <circle cx="60" cy="30" r="3.5" stroke="rgba(255,255,255,0.8)" stroke-width="0.8" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="54" cy="27" r="2.5" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="66" cy="27" r="2.5" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="60" cy="22" r="2.5" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="35" cy="34" r="6.5" stroke="rgba(255,255,255,0.6)" stroke-width="0.7" fill="rgba(255,255,255,0.03)"/>
+          <circle cx="35" cy="34" r="2.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" fill="rgba(255,255,255,0.12)"/>
+          <circle cx="29" cy="31" r="1.8" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" fill="rgba(255,255,255,0.07)"/>
+          <circle cx="41" cy="31" r="1.8" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" fill="rgba(255,255,255,0.07)"/>
+          <circle cx="85" cy="34" r="6.5" stroke="rgba(255,255,255,0.6)" stroke-width="0.7" fill="rgba(255,255,255,0.03)"/>
+          <circle cx="85" cy="34" r="2.5" stroke="rgba(255,255,255,0.7)" stroke-width="0.7" fill="rgba(255,255,255,0.12)"/>
+          <circle cx="79" cy="31" r="1.8" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" fill="rgba(255,255,255,0.07)"/>
+          <circle cx="91" cy="31" r="1.8" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" fill="rgba(255,255,255,0.07)"/>
+          <circle cx="22" cy="42" r="4.5" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" fill="rgba(255,255,255,0.03)"/>
+          <circle cx="22" cy="42" r="1.8" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="98" cy="42" r="4.5" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" fill="rgba(255,255,255,0.03)"/>
+          <circle cx="98" cy="42" r="1.8" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.1)"/>
+          <path d="M60 100 Q50 95 38 92" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" fill="none"/>
+          <path d="M47 96 Q43 90 40 82" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" fill="none"/>
+          <path d="M60 120 Q48 114 36 112" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" fill="none"/>
+          <path d="M60 140 Q50 133 38 132" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" fill="none"/>
+          <path d="M60 100 Q70 95 82 92" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" fill="none"/>
+          <path d="M73 96 Q77 90 80 82" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" fill="none"/>
+          <path d="M60 120 Q72 114 84 112" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" fill="none"/>
+          <path d="M60 140 Q70 133 82 132" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" fill="none"/>
+          <text x="60" y="175" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="Georgia" font-style="italic">Achillea millefolium</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" data-i18n="yarrow.tag">Tea</div>
+        <h3 data-i18n="yarrow.name">Cickafark</h3>
+        <div class="latin">Achillea millefolium</div>
+        <div class="sizes" data-i18n="yarrow.sizes">Kézzel szedett, szárított</div>
+        <div class="price" data-i18n="yarrow.price">Ár hamarosan</div>
+        <button class="order-btn" data-i18n="btn.order">Rendelés</button>
+      </div>
+    </div>
+
+    <!-- CITROMFŰ -->
+    <div class="product-card card-melissa">
+      <div class="plant-illustration">
+        <svg viewBox="0 0 120 180" fill="none">
+          <line x1="60" y1="170" x2="60" y2="30" stroke="rgba(255,255,255,0.8)" stroke-width="1.3"/>
+          <line x1="60" y1="60" x2="38" y2="45" stroke="rgba(255,255,255,0.65)" stroke-width="1"/>
+          <line x1="60" y1="60" x2="82" y2="45" stroke="rgba(255,255,255,0.65)" stroke-width="1"/>
+          <line x1="60" y1="85" x2="36" y2="72" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <line x1="60" y1="85" x2="84" y2="72" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <line x1="60" y1="110" x2="38" y2="98" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+          <line x1="60" y1="110" x2="82" y2="98" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+          <path d="M38 45 Q28 35 32 26 Q36 18 42 26 Q46 32 38 45Z" stroke="rgba(255,255,255,0.75)" stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+          <path d="M38 45 Q32 40 34 32" stroke="rgba(255,255,255,0.3)" stroke-width="0.5" fill="none"/>
+          <path d="M82 45 Q92 35 88 26 Q84 18 78 26 Q74 32 82 45Z" stroke="rgba(255,255,255,0.75)" stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+          <path d="M36 72 Q24 62 28 52 Q32 43 39 52 Q44 59 36 72Z" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+          <path d="M84 72 Q96 62 92 52 Q88 43 81 52 Q76 59 84 72Z" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+          <path d="M38 98 Q26 88 30 78 Q34 69 41 78 Q46 86 38 98Z" stroke="rgba(255,255,255,0.62)" stroke-width="0.8" fill="rgba(255,255,255,0.04)"/>
+          <path d="M82 98 Q94 88 90 78 Q86 69 79 78 Q74 86 82 98Z" stroke="rgba(255,255,255,0.62)" stroke-width="0.8" fill="rgba(255,255,255,0.04)"/>
+          <circle cx="60" cy="58" r="2.2" stroke="rgba(255,255,255,0.6)" stroke-width="0.7" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="60" cy="83" r="2" stroke="rgba(255,255,255,0.55)" stroke-width="0.7" fill="rgba(255,255,255,0.08)"/>
+          <path d="M60 130 Q46 124 40 118" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" fill="none"/>
+          <path d="M60 130 Q74 124 80 118" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" fill="none"/>
+          <path d="M60 152 Q48 144 42 138" stroke="rgba(255,255,255,0.38)" stroke-width="0.8" fill="none"/>
+          <path d="M60 152 Q72 144 78 138" stroke="rgba(255,255,255,0.38)" stroke-width="0.8" fill="none"/>
+          <text x="60" y="175" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="Georgia" font-style="italic">Melissa officinalis</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" data-i18n="melissa.tag">Tea · Hidrolátum</div>
+        <h3 data-i18n="melissa.name">Citromfű</h3>
+        <div class="latin">Melissa officinalis</div>
+        <div class="sizes" data-i18n="melissa.sizes">Tea · Hidrolátum 100 ml, szórófejes</div>
+        <div class="price" data-i18n="melissa.price">500 RSD · 100 ml</div>
+        <button class="order-btn" data-i18n="btn.order">Rendelés</button>
+      </div>
+    </div>
+
+    <!-- SZALMAGYOPÁR -->
+    <div class="product-card card-helichrysum">
+      <div class="plant-illustration">
+        <svg viewBox="0 0 120 180" fill="none">
+          <line x1="60" y1="170" x2="60" y2="105" stroke="rgba(255,255,255,0.85)" stroke-width="1.4"/>
+          <line x1="60" y1="105" x2="45" y2="85" stroke="rgba(255,255,255,0.75)" stroke-width="1.1"/>
+          <line x1="60" y1="105" x2="75" y2="82" stroke="rgba(255,255,255,0.75)" stroke-width="1.1"/>
+          <line x1="60" y1="105" x2="60" y2="78" stroke="rgba(255,255,255,0.8)" stroke-width="1.2"/>
+          <line x1="45" y1="85" x2="32" y2="70" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <line x1="75" y1="82" x2="88" y2="67" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <ellipse cx="60" cy="62" rx="13" ry="13" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" fill="rgba(255,210,80,0.07)"/>
+          <ellipse cx="60" cy="62" rx="9" ry="9" stroke="rgba(255,255,255,0.5)" stroke-width="0.7" fill="rgba(255,210,80,0.1)"/>
+          <line x1="60" y1="50" x2="60" y2="54" stroke="rgba(255,230,100,0.75)" stroke-width="1.3"/>
+          <line x1="60" y1="74" x2="60" y2="70" stroke="rgba(255,230,100,0.75)" stroke-width="1.3"/>
+          <line x1="48" y1="62" x2="52" y2="62" stroke="rgba(255,230,100,0.75)" stroke-width="1.3"/>
+          <line x1="72" y1="62" x2="68" y2="62" stroke="rgba(255,230,100,0.75)" stroke-width="1.3"/>
+          <line x1="51.5" y1="53.5" x2="54.3" y2="56.3" stroke="rgba(255,230,100,0.6)" stroke-width="1"/>
+          <line x1="68.5" y1="53.5" x2="65.7" y2="56.3" stroke="rgba(255,230,100,0.6)" stroke-width="1"/>
+          <line x1="51.5" y1="70.5" x2="54.3" y2="67.7" stroke="rgba(255,230,100,0.6)" stroke-width="1"/>
+          <line x1="68.5" y1="70.5" x2="65.7" y2="67.7" stroke="rgba(255,230,100,0.6)" stroke-width="1"/>
+          <circle cx="60" cy="62" r="4.5" stroke="rgba(255,230,100,0.85)" stroke-width="0.9" fill="rgba(255,200,50,0.22)"/>
+          <circle cx="60" cy="62" r="2" fill="rgba(255,210,80,0.5)" stroke="none"/>
+          <ellipse cx="45" cy="70" rx="9" ry="9" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" fill="rgba(255,210,80,0.06)"/>
+          <circle cx="45" cy="70" r="3" stroke="rgba(255,230,100,0.65)" stroke-width="0.8" fill="rgba(255,200,50,0.18)"/>
+          <line x1="45" y1="61" x2="45" y2="64" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <line x1="45" y1="79" x2="45" y2="76" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <line x1="36" y1="70" x2="39" y2="70" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <line x1="54" y1="70" x2="51" y2="70" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <ellipse cx="75" cy="67" rx="9" ry="9" stroke="rgba(255,255,255,0.3)" stroke-width="0.6" fill="rgba(255,210,80,0.06)"/>
+          <circle cx="75" cy="67" r="3" stroke="rgba(255,230,100,0.65)" stroke-width="0.8" fill="rgba(255,200,50,0.18)"/>
+          <line x1="75" y1="58" x2="75" y2="61" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <line x1="75" y1="76" x2="75" y2="73" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <line x1="66" y1="67" x2="69" y2="67" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <line x1="84" y1="67" x2="81" y2="67" stroke="rgba(255,230,100,0.55)" stroke-width="0.9"/>
+          <circle cx="32" cy="63" r="2.2" stroke="rgba(255,230,100,0.5)" stroke-width="0.6" fill="rgba(255,200,50,0.12)"/>
+          <circle cx="88" cy="60" r="2.2" stroke="rgba(255,230,100,0.5)" stroke-width="0.6" fill="rgba(255,200,50,0.12)"/>
+          <path d="M60 125 Q48 120 44 115" stroke="rgba(255,255,255,0.55)" stroke-width="0.9" fill="none"/>
+          <path d="M60 125 Q72 120 76 115" stroke="rgba(255,255,255,0.55)" stroke-width="0.9" fill="none"/>
+          <path d="M60 142 Q46 136 42 130" stroke="rgba(255,255,255,0.45)" stroke-width="0.85" fill="none"/>
+          <path d="M60 142 Q74 136 78 130" stroke="rgba(255,255,255,0.45)" stroke-width="0.85" fill="none"/>
+          <path d="M60 158 Q48 151 44 145" stroke="rgba(255,255,255,0.38)" stroke-width="0.8" fill="none"/>
+          <path d="M60 158 Q72 151 76 145" stroke="rgba(255,255,255,0.38)" stroke-width="0.8" fill="none"/>
+          <text x="60" y="175" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="Georgia" font-style="italic">Helichrysum italicum</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" data-i18n="heli.tag">Hidrolátum · Tea</div>
+        <h3 data-i18n="heli.name">Szalmagyopár</h3>
+        <div class="latin">Helichrysum italicum</div>
+        <div class="sizes" data-i18n="heli.sizes">Hidrolátum 100 ml, szórófejes · Tea</div>
+        <div class="price" data-i18n="heli.price">650 RSD · 100 ml</div>
+        <button class="order-btn" data-i18n="btn.order">Rendelés</button>
+      </div>
+    </div>
+
+    <!-- MENTA -->
+    <div class="product-card card-mint">
+      <div class="plant-illustration">
+        <svg viewBox="0 0 120 180" fill="none">
+          <line x1="60" y1="170" x2="60" y2="40" stroke="rgba(255,255,255,0.8)" stroke-width="1.3"/>
+          <path d="M40 138 Q26 128 30 114 Q35 103 44 113 Q50 124 40 138Z" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+          <path d="M40 138 Q34 128 33 118" stroke="rgba(255,255,255,0.3)" stroke-width="0.5" fill="none"/>
+          <path d="M80 138 Q94 128 90 114 Q85 103 76 113 Q70 124 80 138Z" stroke="rgba(255,255,255,0.7)" stroke-width="0.8" fill="rgba(255,255,255,0.05)"/>
+          <path d="M80 138 Q86 128 87 118" stroke="rgba(255,255,255,0.3)" stroke-width="0.5" fill="none"/>
+          <line x1="60" y1="140" x2="42" y2="132" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+          <line x1="60" y1="140" x2="78" y2="132" stroke="rgba(255,255,255,0.55)" stroke-width="0.9"/>
+          <path d="M38 106 Q24 96 28 82 Q33 71 42 81 Q48 92 38 106Z" stroke="rgba(255,255,255,0.72)" stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+          <path d="M38 106 Q32 96 31 86" stroke="rgba(255,255,255,0.3)" stroke-width="0.5" fill="none"/>
+          <path d="M82 106 Q96 96 92 82 Q87 71 78 81 Q72 92 82 106Z" stroke="rgba(255,255,255,0.72)" stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+          <path d="M82 106 Q88 96 89 86" stroke="rgba(255,255,255,0.3)" stroke-width="0.5" fill="none"/>
+          <line x1="60" y1="108" x2="40" y2="100" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <line x1="60" y1="108" x2="80" y2="100" stroke="rgba(255,255,255,0.6)" stroke-width="0.9"/>
+          <path d="M42 76 Q30 66 34 54 Q39 45 47 54 Q52 64 42 76Z" stroke="rgba(255,255,255,0.62)" stroke-width="0.8" fill="rgba(255,255,255,0.04)"/>
+          <path d="M78 76 Q90 66 86 54 Q81 45 73 54 Q68 64 78 76Z" stroke="rgba(255,255,255,0.62)" stroke-width="0.8" fill="rgba(255,255,255,0.04)"/>
+          <line x1="60" y1="78" x2="44" y2="70" stroke="rgba(255,255,255,0.55)" stroke-width="0.85"/>
+          <line x1="60" y1="78" x2="76" y2="70" stroke="rgba(255,255,255,0.55)" stroke-width="0.85"/>
+          <ellipse cx="60" cy="34" rx="5" ry="7" stroke="rgba(255,255,255,0.75)" stroke-width="0.8" fill="rgba(255,255,255,0.07)"/>
+          <circle cx="55" cy="40" r="2" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="65" cy="40" r="2" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.08)"/>
+          <circle cx="56" cy="30" r="1.8" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" fill="rgba(255,255,255,0.06)"/>
+          <circle cx="64" cy="30" r="1.8" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" fill="rgba(255,255,255,0.06)"/>
+          <circle cx="60" cy="24" r="1.8" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" fill="rgba(255,255,255,0.06)"/>
+          <path d="M60 158 Q48 151 44 145" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" fill="none"/>
+          <path d="M60 158 Q72 151 76 145" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" fill="none"/>
+          <text x="60" y="175" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="Georgia" font-style="italic">Mentha × piperita</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" data-i18n="mint.tag">Hidrolátum</div>
+        <h3 data-i18n="mint.name">Borsmenta</h3>
+        <div class="latin">Mentha × piperita</div>
+        <div class="sizes" data-i18n="mint.sizes">100 ml sötét üveg, szórófejes</div>
+        <div class="price" data-i18n="mint.price">500 RSD · 100 ml</div>
+        <button class="order-btn" data-i18n="btn.order">Rendelés</button>
+      </div>
+    </div>
+
+    <!-- ROZMARING -->
+    <div class="product-card card-rosemary">
+      <div class="plant-illustration">
+        <svg viewBox="0 0 120 180" fill="none">
+          <path d="M60 170 Q58 110 60 32" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" fill="none"/>
+          <path d="M60 130 Q44 118 38 96" stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="none"/>
+          <path d="M60 118 Q76 106 82 84" stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="none"/>
+          <line x1="60" y1="150" x2="48" y2="142" stroke="rgba(255,255,255,0.55)" stroke-width="0.8"/>
+          <line x1="60" y1="150" x2="72" y2="142" stroke="rgba(255,255,255,0.55)" stroke-width="0.8"/>
+          <line x1="60" y1="140" x2="47" y2="131" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+          <line x1="60" y1="140" x2="73" y2="131" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+          <line x1="60" y1="100" x2="48" y2="91" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
+          <line x1="60" y1="100" x2="72" y2="91" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
+          <line x1="60" y1="88" x2="49" y2="79" stroke="rgba(255,255,255,0.62)" stroke-width="0.8"/>
+          <line x1="60" y1="88" x2="71" y2="79" stroke="rgba(255,255,255,0.62)" stroke-width="0.8"/>
+          <line x1="60" y1="76" x2="50" y2="67" stroke="rgba(255,255,255,0.65)" stroke-width="0.8"/>
+          <line x1="60" y1="76" x2="70" y2="67" stroke="rgba(255,255,255,0.65)" stroke-width="0.8"/>
+          <line x1="60" y1="64" x2="51" y2="55" stroke="rgba(255,255,255,0.68)" stroke-width="0.8"/>
+          <line x1="60" y1="64" x2="69" y2="55" stroke="rgba(255,255,255,0.68)" stroke-width="0.8"/>
+          <line x1="60" y1="52" x2="52" y2="43" stroke="rgba(255,255,255,0.72)" stroke-width="0.8"/>
+          <line x1="60" y1="52" x2="68" y2="43" stroke="rgba(255,255,255,0.72)" stroke-width="0.8"/>
+          <line x1="60" y1="42" x2="54" y2="33" stroke="rgba(255,255,255,0.75)" stroke-width="0.8"/>
+          <line x1="60" y1="42" x2="66" y2="33" stroke="rgba(255,255,255,0.75)" stroke-width="0.8"/>
+          <line x1="38" y1="96" x2="30" y2="88" stroke="rgba(255,255,255,0.45)" stroke-width="0.7"/>
+          <line x1="38" y1="96" x2="44" y2="86" stroke="rgba(255,255,255,0.45)" stroke-width="0.7"/>
+          <line x1="42" y1="106" x2="33" y2="99" stroke="rgba(255,255,255,0.42)" stroke-width="0.7"/>
+          <line x1="82" y1="84" x2="90" y2="76" stroke="rgba(255,255,255,0.45)" stroke-width="0.7"/>
+          <line x1="82" y1="84" x2="76" y2="74" stroke="rgba(255,255,255,0.45)" stroke-width="0.7"/>
+          <line x1="78" y1="94" x2="87" y2="87" stroke="rgba(255,255,255,0.42)" stroke-width="0.7"/>
+          <circle cx="52" cy="60" r="2" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="68" cy="48" r="2" stroke="rgba(255,255,255,0.55)" stroke-width="0.6" fill="rgba(255,255,255,0.1)"/>
+          <circle cx="60" cy="28" r="2.2" stroke="rgba(255,255,255,0.6)" stroke-width="0.6" fill="rgba(255,255,255,0.12)"/>
+          <text x="60" y="175" text-anchor="middle" font-size="6.5" fill="rgba(255,255,255,0.3)" font-family="Georgia" font-style="italic">Salvia rosmarinus</text>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag" data-i18n="rose.tag">Hidrolátum</div>
+        <h3 data-i18n="rose.name">Rozmaring</h3>
+        <div class="latin">Salvia rosmarinus</div>
+        <div class="sizes" data-i18n="rose.sizes">100 ml sötét üveg, szórófejes</div>
+        <div class="price" data-i18n="rose.price">500 RSD · 100 ml</div>
+        <button class="order-btn" data-i18n="btn.order">Rendelés</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+const T = {
+  hu: {
+    'nav.products': 'Termékeink',
+    'nav.farm': 'Farmunk',
+    'nav.order': 'Rendelés',
+    'hero.eyebrow': 'Természetes · Kézzel szedett · Desztillált',
+    'hero.h1': 'Illóolajak és hidrolátumok<br>a zentai ültetvényről',
+    'scroll': 'Görgess',
+    'story.label': 'A farm',
+    'story.h2': '1 900 m² a zentai határban,<br>ahol minden csepp megterem.',
+    'story.p': 'Levendula, cickafark, szalmagyopár – kis ültetvény, de minden növényt kézzel szedünk és saját laborban dolgozunk fel. Farm-to-bottle nem jelszó: a mag elültetésétől az üveg lezárásáig minden a mi kezünkben van.',
+    'products.label': 'Termékeink',
+    'products.h2': 'Amit most rendelhetsz',
+    'lav.tag': 'Hidrolátum', 'lav.name': 'Levendula',
+    'lav.sizes': '100 ml sötét üveg, szórófejes',
+    'lav.price': '500 RSD · 100 ml<small>500 ml utántöltő · 1 000 RSD</small>',
+    'yarrow.tag': 'Tea', 'yarrow.name': 'Cickafark', 'yarrow.sizes': 'Kézzel szedett, szárított',
+    'yarrow.price': 'Ár hamarosan',
+    'melissa.tag': 'Tea · Hidrolátum', 'melissa.name': 'Citromfű', 'melissa.sizes': 'Tea · Hidrolátum 100 ml, szórófejes',
+    'melissa.price': '500 RSD · 100 ml',
+    'heli.tag': 'Hidrolátum · Tea', 'heli.name': 'Szalmagyopár', 'heli.sizes': 'Hidrolátum 100 ml, szórófejes · Tea',
+    'heli.price': '650 RSD · 100 ml',
+    'mint.tag': 'Hidrolátum', 'mint.name': 'Borsmenta', 'mint.sizes': '100 ml sötét üveg, szórófejes',
+    'mint.price': '500 RSD · 100 ml',
+    'rose.tag': 'Hidrolátum', 'rose.name': 'Rozmaring', 'rose.sizes': '100 ml sötét üveg, szórófejes',
+    'rose.price': '500 RSD · 100 ml',
+    'btn.order': 'Rendelés',
+  },
+  sr: {
+    'nav.products': 'Proizvodi',
+    'nav.farm': 'Naša farma',
+    'nav.order': 'Narudžbina',
+    'hero.eyebrow': 'Prirodno · Ručno ubrano · Destilovano',
+    'hero.h1': 'Etarska ulja i hidrolati<br>sa naše farme u Senti',
+    'scroll': 'Skroluj',
+    'story.label': 'Farma',
+    'story.h2': '1 900 m² na periferiji Sente,<br>gde svaka kap izraste.',
+    'story.p': 'Lavanda, hajdučka trava, smilje – mala farma, ali svaka biljka se ručno bere i prerađuje u sopstvenoj laboratoriji. Farm-to-bottle nije samo fraza: od sadnje do zatvorene bočice, sve ostaje u našim rukama.',
+    'products.label': 'Naši proizvodi',
+    'products.h2': 'Dostupno sada',
+    'lav.tag': 'Hidrolat', 'lav.name': 'Lavanda',
+    'lav.sizes': '100 ml tamno staklo, sa sprej pumpicom',
+    'lav.price': '500 RSD · 100 ml<small>500 ml dopuna · 1.000 RSD</small>',
+    'yarrow.tag': 'Biljni čaj', 'yarrow.name': 'Hajdučka trava', 'yarrow.sizes': 'Ručno ubrano, sušeno',
+    'yarrow.price': 'Cena uskoro',
+    'melissa.tag': 'Čaj · Hidrolat', 'melissa.name': 'Matičnjak', 'melissa.sizes': 'Čaj · Hidrolat 100 ml, sprej',
+    'melissa.price': '500 RSD · 100 ml',
+    'heli.tag': 'Hidrolat · Čaj', 'heli.name': 'Smilje', 'heli.sizes': 'Hidrolat 100 ml, sprej · Čaj',
+    'heli.price': '650 RSD · 100 ml',
+    'mint.tag': 'Hidrolat', 'mint.name': 'Pitoma nana', 'mint.sizes': '100 ml tamno staklo, sa sprej pumpicom',
+    'mint.price': '500 RSD · 100 ml',
+    'rose.tag': 'Hidrolat', 'rose.name': 'Ruzmarin', 'rose.sizes': '100 ml tamno staklo, sa sprej pumpicom',
+    'rose.price': '500 RSD · 100 ml',
+    'btn.order': 'Naruči',
+  },
+  en: {
+    'nav.products': 'Products',
+    'nav.farm': 'Our Farm',
+    'nav.order': 'Order',
+    'hero.eyebrow': 'Natural · Hand-harvested · Distilled',
+    'hero.h1': 'Essential oils and hydrosols<br>from our Zenta farm',
+    'scroll': 'Scroll',
+    'story.label': 'The farm',
+    'story.h2': '1,900 m² on the outskirts of Zenta,<br>where every drop is grown.',
+    'story.p': 'Lavender, yarrow, helichrysum — a small farm, but every plant is hand-harvested and processed in our own lab. Farm-to-bottle isn\'t a tagline: from seed to sealed bottle, everything stays in our hands.',
+    'products.label': 'Our products',
+    'products.h2': 'Available now',
+    'lav.tag': 'Hydrosol', 'lav.name': 'Lavender',
+    'lav.sizes': '100 ml dark glass, spray top',
+    'lav.price': '500 RSD · 100 ml<small>500 ml refill · 1,000 RSD</small>',
+    'yarrow.tag': 'Herbal tea', 'yarrow.name': 'Yarrow', 'yarrow.sizes': 'Hand-harvested, dried',
+    'yarrow.price': 'Price coming soon',
+    'melissa.tag': 'Tea · Hydrosol', 'melissa.name': 'Lemon Balm', 'melissa.sizes': 'Tea · Hydrosol 100 ml, spray top',
+    'melissa.price': '500 RSD · 100 ml',
+    'heli.tag': 'Hydrosol · Tea', 'heli.name': 'Helichrysum', 'heli.sizes': 'Hydrosol 100 ml, spray top · Tea',
+    'heli.price': '650 RSD · 100 ml',
+    'mint.tag': 'Hydrosol', 'mint.name': 'Peppermint', 'mint.sizes': '100 ml dark glass, spray top',
+    'mint.price': '500 RSD · 100 ml',
+    'rose.tag': 'Hydrosol', 'rose.name': 'Rosemary', 'rose.sizes': '100 ml dark glass, spray top',
+    'rose.price': '500 RSD · 100 ml',
+    'btn.order': 'Order',
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem('pauer-lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+  });
+  document.querySelectorAll('.lang-switch span').forEach(s => {
+    s.classList.toggle('active', s.dataset.lang === lang);
+  });
+  document.documentElement.lang = lang;
+}
+
+// Betöltéskor alkalmazza az elmentett nyelvet
+const saved = localStorage.getItem('pauer-lang') || 'hu';
+if (saved !== 'hu') setLang(saved);
+</script>
+
+</body>
+</html>
