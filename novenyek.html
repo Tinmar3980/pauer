@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A növényeink – és a tudomány mögöttük | PAUER</title>
+<meta name="description" content="PAUER növényei: levendula, cickafark, szalmagyopár, citromfű – fő vegyületeik és a peer-reviewed kutatások, amelyek e vegyületeket vizsgálták. Ismeretterjesztő tartalom, nem termékígéret.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231A403A'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Georgia,serif' fill='%23ffffff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #faf8f2; font-family: 'Georgia', serif; color: #22271f; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 20;
+    background: #1A403A;
+    padding: 18px 52px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { width: 30px; }
+  .nav-logo span { font-size: 0.95rem; letter-spacing: 0.3em; font-weight: 300; color: #fff; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .lang-switch { display: flex; gap: 12px; font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); }
+  .lang-switch span { cursor: pointer; transition: color 0.2s; }
+  .lang-switch span:hover { color: rgba(255,255,255,0.85); }
+  .lang-switch .active { color: #fff; border-bottom: 1px solid #7aaa90; padding-bottom: 1px; }
+
+  /* HERO */
+  .farm-hero {
+    background: linear-gradient(160deg, #1A403A 0%, #0d2218 100%);
+    color: #fff; padding: 92px 32px 84px; text-align: center;
+  }
+  .farm-hero .eyebrow { font-size: 0.66rem; letter-spacing: 0.36em; text-transform: uppercase; color: #7aaa90; margin-bottom: 20px; }
+  .farm-hero h1 { font-size: 2.5rem; font-weight: 300; line-height: 1.28; max-width: 780px; margin: 0 auto 22px; }
+  .farm-hero p { font-size: 1.02rem; line-height: 1.75; color: rgba(255,255,255,0.75); max-width: 620px; margin: 0 auto; }
+
+  /* CONTENT */
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 28px; }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    max-width: 760px; margin: 34px auto 0; padding: 16px 22px;
+    background: #f0ece0; border: 1px solid #ddd6c4; border-radius: 4px;
+    font-size: 0.82rem; line-height: 1.65; color: #6a6550; font-style: italic;
+  }
+
+  .block { padding: 68px 0; border-bottom: 1px solid #e7e2d6; }
+  .block:last-of-type { border-bottom: none; }
+  .block .kicker { font-size: 0.64rem; letter-spacing: 0.28em; text-transform: uppercase; color: #7a8a5f; font-style: italic; margin-bottom: 12px; }
+  .block h2 { font-size: 1.75rem; font-weight: 400; line-height: 1.35; margin-bottom: 22px; color: #1A403A; }
+  .block p { font-size: 1.03rem; line-height: 1.9; color: #3c4238; margin-bottom: 18px; }
+  .block p:last-child { margin-bottom: 0; }
+  .block .lead { font-size: 1.1rem; color: #2a3025; }
+
+  /* COMPOUNDS */
+  .compounds { margin: 22px 0 26px; }
+  .compounds .lbl { font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase; color: #1A403A; display: block; margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+  .chip { background: #1A403A; color: #eaf2ec; font-size: 0.82rem; padding: 6px 14px; border-radius: 30px; letter-spacing: 0.02em; }
+
+  .fact {
+    background: #fff; border-left: 3px solid #7aaa90;
+    padding: 20px 26px; margin: 26px 0; font-size: 0.98rem; line-height: 1.75; color: #3c4238;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .fact strong { color: #1A403A; }
+  sup a { color: #1A403A; text-decoration: none; font-size: 0.72em; font-weight: bold; padding: 0 1px; }
+  sup a:hover { text-decoration: underline; }
+
+  /* REFERENCES */
+  #refs { background: #1A403A; color: #fff; padding: 70px 28px 60px; }
+  #refs .wrap { max-width: 760px; }
+  #refs h2 { font-size: 1.4rem; font-weight: 300; margin-bottom: 10px; }
+  #refs .intro { font-size: 0.92rem; line-height: 1.7; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+  #refs ol { list-style: none; counter-reset: ref; }
+  #refs li { counter-increment: ref; position: relative; padding: 14px 0 14px 40px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 0.86rem; line-height: 1.6; color: rgba(255,255,255,0.82); }
+  #refs li::before { content: counter(ref); position: absolute; left: 0; top: 14px; width: 26px; height: 26px; border: 1px solid #7aaa90; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; color: #7aaa90; }
+  #refs a { color: #a9d0ba; text-decoration: none; word-break: break-word; }
+  #refs a:hover { text-decoration: underline; color: #cfe6d8; }
+  #refs .journal { font-style: italic; color: rgba(255,255,255,0.6); }
+
+  /* FOOTER */
+  footer.site { background: #0d2218; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 28px; font-size: 0.7rem; letter-spacing: 0.14em; }
+  footer.site a { color: #a9d0ba; text-decoration: none; }
+  .back-link { display: inline-block; margin-top: 8px; }
+
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .nav-logo span { display: none; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 0.62rem; letter-spacing: 0.08em; }
+    .farm-hero { padding: 64px 20px 56px; }
+    .farm-hero h1 { font-size: 1.7rem; }
+    .block { padding: 50px 0; }
+    .block h2 { font-size: 1.42rem; }
+    .block p { font-size: 0.98rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo2.jpg" alt="PAUER">
+    <span>PAUER</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#products" data-i18n="nav.products">Termékeink</a></li>
+    <li><a href="farm.html" data-i18n="nav.farm">Farmunk</a></li>
+    <li><a href="novenyek.html" class="active" data-i18n="nav.plants">Növényeink</a></li>
+    <li><a href="index.html#order" data-i18n="nav.order">Rendelés</a></li>
+  </ul>
+  <div class="lang-switch">
+    <span onclick="setLang('hu')" data-lang="hu" class="active">HU</span>
+    <span onclick="setLang('sr')" data-lang="sr">SR</span>
+    <span onclick="setLang('en')" data-lang="en">EN</span>
+  </div>
+</nav>
+
+<section class="farm-hero">
+  <div class="eyebrow" data-i18n="h.eyebrow">A növényeink</div>
+  <h1 data-i18n="h.title">Négy növény – és a vegyületek, amelyeket a tudomány vizsgál bennük</h1>
+  <p data-i18n="h.sub">Az ültetvényünk négy növénye nem véletlen. Mindegyik egy-egy jellemző vegyületcsalád hordozója, amelyeket a szakirodalom részletesen vizsgált. Az alábbiakban azt gyűjtöttük össze, mit tartalmaznak – és mit mutattak eddig a kutatások.</p>
+</section>
+
+<p class="disclaimer" data-i18n="disc">Ez a szakasz ismeretterjesztő tartalom a növényekről és fitokémiájukról, peer-reviewed kutatások alapján. Nem termékígéret, nem egészségügyi állítás és nem orvosi tanács. A hivatkozott vizsgálatok jellemzően izolált vegyületeket, kivonatokat vagy illóolajokat vizsgáltak – gyakran laboratóriumi (in vitro) körülmények között.</p>
+
+<div class="wrap">
+
+  <!-- 1. LEVENDULA -->
+  <div class="block">
+    <div class="kicker" data-i18n="lav.kicker">Lavandula angustifolia · Lamiaceae</div>
+    <h2 data-i18n="lav.h">Levendula – a linalool és a linalil-acetát növénye</h2>
+    <p class="lead" data-i18n="lav.p1">A valódi levendula illatát két vegyület határozza meg: a linalool és a linalil-acetát. A standardizált levendulaolaj ezekből jellemzően a legtöbbet tartalmazza – az egyik legvizsgáltabb készítményben (Silexan) mérve 36,8% linalool és 34,2% linalil-acetát.<sup><a href="#r1">1</a></sup></p>
+    <div class="compounds">
+      <span class="lbl" data-i18n="comp.lbl">Fő vegyületek</span>
+      <div class="chips"><span class="chip">linalool</span><span class="chip">linalil-acetát</span></div>
+    </div>
+    <p data-i18n="lav.p2"><strong>Nyugtató irány.</strong> A levendulaolaj szorongásra gyakorolt hatását több klinikai vizsgálatban vizsgálták: egy öt randomizált vizsgálatot összesítő meta-analízisben a standardizált olaj a szorongási pontszámot (HAMA) a placebónál nagyobb mértékben csökkentette.<sup><a href="#r1">1</a></sup><sup><a href="#r2">2</a></sup></p>
+    <p data-i18n="lav.p3"><strong>Mit néz a mechanizmus-kutatás.</strong> A linaloolt és a linalil-acetátot idegrendszeri célpontokon vizsgálták – többek között a szerotonin-rendszeren (5-HT1A) és a feszültségfüggő kalciumcsatornákon.<sup><a href="#r3">3</a></sup></p>
+    <p data-i18n="lav.p4"><strong>Antimikrobiális irány.</strong> A levendula illóolaját laboratóriumi (in vitro) és in silico vizsgálatokban antimikrobiális szempontból is tanulmányozták.<sup><a href="#r4">4</a></sup></p>
+    <div class="fact" data-i18n="lav.fact">A legvizsgáltabb standardizált levendulaolaj (Silexan) <strong>36,8% linaloolt és 34,2% linalil-acetátot</strong> tartalmaz; egy meta-analízisben napi 80 mg orális adagja a szorongásra vizsgálva a placebónál hatékonyabbnak bizonyult.<sup><a href="#r1">1</a></sup></div>
+  </div>
+
+  <!-- 2. CICKAFARK -->
+  <div class="block">
+    <div class="kicker" data-i18n="yar.kicker">Achillea millefolium · Asteraceae</div>
+    <h2 data-i18n="yar.h">Cickafark – a kék kamazulén növénye</h2>
+    <p class="lead" data-i18n="yar.p1">A cickafark desztillátuma gyakran kékes árnyalatú: ezt a kamazulén adja, amely a desztilláció hője alatt keletkezik. Az illóolaj nagyrészt oxigenált monoterpénekből áll (egy vizsgálatban a teljes olaj ~75,7%-a), fő komponensei az artemizia-keton, a kámfor, a linalil-acetát és az 1,8-cineol.<sup><a href="#r5">5</a></sup></p>
+    <div class="compounds">
+      <span class="lbl" data-i18n="comp.lbl">Fő vegyületek</span>
+      <div class="chips"><span class="chip">kamazulén</span><span class="chip">1,8-cineol</span><span class="chip">kámfor</span><span class="chip">artemizia-keton</span></div>
+    </div>
+    <p data-i18n="yar.p2"><strong>Gyulladás-kutatás (in vitro).</strong> Egy sejtes vizsgálatban a cickafark illóolaja gyulladásra ingerelt makrofágokban csökkentette a gyulladásos jelzővegyületek termelését – a nitrogén-monoxidot mintegy 35%-kal, az IL-6 hírvivő-RNS-t körülbelül 50%-kal.<sup><a href="#r5">5</a></sup></p>
+    <p data-i18n="yar.p3"><strong>Hagyományos használat.</strong> A cickafark a világ egyik legrégebben használt gyógynövénye; az etnobotanikai szakirodalom sebekkel, emésztéssel és gyulladással összefüggő hagyományos használatát dokumentálja.<sup><a href="#r6">6</a></sup></p>
+    <p data-i18n="yar.p4"><strong>Antioxidáns és antibakteriális irány.</strong> A cickafark-kivonatokat és -frakciókat antioxidáns és antibakteriális szempontból is vizsgálták.<sup><a href="#r7">7</a></sup> A növény hatásmechanizmusát, farmakokinetikáját és tolerálhatóságát külön áttekintő tanulmány foglalja össze.<sup><a href="#r8">8</a></sup></p>
+    <div class="fact" data-i18n="yar.fact">Laboratóriumi (in vitro) vizsgálatban a cickafark illóolaja a gyulladásra ingerelt sejtekben a nitrogén-monoxid termelését <strong>~35%-kal</strong>, az IL-6 hírvivő-RNS-t <strong>~50%-kal</strong> csökkentette.<sup><a href="#r5">5</a></sup></div>
+  </div>
+
+  <!-- 3. SZALMAGYOPÁR -->
+  <div class="block">
+    <div class="kicker" data-i18n="hel.kicker">Helichrysum italicum · Asteraceae</div>
+    <h2 data-i18n="hel.h">Szalmagyopár – a neril-acetát prémium növénye</h2>
+    <p class="lead" data-i18n="hel.p1">A szalmagyopár a portfóliónk legértékesebb növénye. Illóolaja neril-acetátban gazdag – a korzikai típusban ez a fő komponens, jellemzően 33–39% között –, emellett tartalmazza az arzanol nevű, sokat vizsgált vegyületet is.<sup><a href="#r9">9</a></sup></p>
+    <div class="compounds">
+      <span class="lbl" data-i18n="comp.lbl">Fő vegyületek</span>
+      <div class="chips"><span class="chip">neril-acetát</span><span class="chip">α-pinén</span><span class="chip">arzanol</span></div>
+    </div>
+    <p data-i18n="hel.p2"><strong>Bőr-barrier kutatás (in vitro).</strong> Egy bőrmodellen végzett vizsgálatban a szalmagyopár fő vegyülete, a neril-acetát a bőr védőrétegéhez kötődő fehérjéket (involukrin) és a ceramidok mennyiségét növelte, és a bőr differenciálódásában szerepet játszó géneket szabályozott.<sup><a href="#r9">9</a></sup> A növény kivonatát a bőr extracelluláris mátrixán is tanulmányozták.<sup><a href="#r10">10</a></sup></p>
+    <p data-i18n="hel.p3"><strong>Gyulladás- és antioxidáns-irány.</strong> Az arzanolt gyulladáscsökkentő és antioxidáns szempontból vizsgálták; a szalmagyopár belső használatának adatait külön áttekintés összegzi.<sup><a href="#r11">11</a></sup></p>
+    <p data-i18n="hel.p4"><strong>Antimikrobiális irány.</strong> A szalmagyopár illóolajának antibakteriális aktivitását laboratóriumi vizsgálatokban is tanulmányozták.<sup><a href="#r12">12</a></sup></p>
+    <div class="fact" data-i18n="hel.fact">In vitro bőrmodellen a neril-acetát – a szalmagyopár fő vegyülete – a bőrbarrierhez kötődő involukrin fehérjét mintegy <strong>51%-kal</strong>, az összceramid mennyiségét körülbelül <strong>64%-kal</strong> növelte öt nap alatt.<sup><a href="#r9">9</a></sup></div>
+  </div>
+
+  <!-- 4. CITROMFŰ -->
+  <div class="block">
+    <div class="kicker" data-i18n="mel.kicker">Melissa officinalis · Lamiaceae</div>
+    <h2 data-i18n="mel.h">Citromfű – a rozmaringsav és a citrál növénye</h2>
+    <p class="lead" data-i18n="mel.p1">A citromfű friss, citromos illatát a citrál és a citronellál adja, a vizes kivonat legfontosabb hatóanyaga viszont a rozmaringsav – ezt tekintik a növény fő minőségi jelzővegyületének.<sup><a href="#r13">13</a></sup></p>
+    <div class="compounds">
+      <span class="lbl" data-i18n="comp.lbl">Fő vegyületek</span>
+      <div class="chips"><span class="chip">rozmaringsav</span><span class="chip">citrál</span><span class="chip">citronellál</span></div>
+    </div>
+    <p data-i18n="mel.p2"><strong>Antioxidáns irány.</strong> A rozmaringsavat az egyik legerősebb növényi antioxidánsként tartják számon; a citromfű antioxidáns aktivitását vizsgálatokban a kvercetinéhez mérhetőnek találták.<sup><a href="#r13">13</a></sup></p>
+    <p data-i18n="mel.p3"><strong>Nyugtató és kognitív irány.</strong> A citromfű-kivonatot klinikai és preklinikai vizsgálatokban tanulmányozták: egy vizsgálatban 600 mg standardizált kivonat a szorongás ~18%-os csökkenésével járt, más kísérletekben a kivonat a tanulási-emlékezeti teljesítményt javította.<sup><a href="#r13">13</a></sup><sup><a href="#r14">14</a></sup></p>
+    <p data-i18n="mel.p4"><strong>Antivirális irány.</strong> A citromfüvet – elsősorban a rozmaringsav miatt – a herpesz simplex vírus (HSV-1) ellen laboratóriumi vizsgálatokban tanulmányozták.<sup><a href="#r13">13</a></sup><sup><a href="#r15">15</a></sup></p>
+    <div class="fact" data-i18n="mel.fact">A citromfű fő antioxidánsa a <strong>rozmaringsav</strong>; egy klinikai vizsgálatban 600 mg standardizált kivonat a szorongás <strong>~18%-os</strong> csökkenésével járt, laboratóriumi vizsgálatokban pedig a vegyület a HSV-1 vírust gátolta.<sup><a href="#r13">13</a></sup></div>
+  </div>
+
+</div>
+
+<!-- REFERENCES -->
+<section id="refs">
+  <div class="wrap">
+    <h2 data-i18n="refs.h">Tudományos háttér</h2>
+    <p class="intro" data-i18n="refs.intro">Az ezen az oldalon szereplő állítások mögött szakértői lektorálású (peer-reviewed) kutatások állnak. A vizsgálatok jellemzően izolált vegyületeket, kivonatokat vagy illóolajokat vizsgáltak – nem a PAUER termékeit. Nem kérünk hitet: kísérleti adatot mutatunk, forrással.</p>
+    <ol>
+      <li id="r1"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6889391/" target="_blank" rel="noopener">Efficacy and safety of lavender essential oil (Silexan) capsules among patients suffering from anxiety disorders: A network meta-analysis.</a> <span class="journal">PMC6889391.</span></li>
+      <li id="r2"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12454915/" target="_blank" rel="noopener">A Comprehensive Review on Anxiolytic Effect of Lavandula angustifolia Mill. in Clinical Studies.</a> <span class="journal">PMC12454915.</span></li>
+      <li id="r3"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3639265/" target="_blank" rel="noopener">Lavender Oil — Potent Anxiolytic Properties via Modulating Voltage-Dependent Calcium Channels.</a> <span class="journal">PLoS ONE / PMC3639265.</span></li>
+      <li id="r4"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12291901/" target="_blank" rel="noopener">Antimicrobial Activity of Lavender Essential Oil from Lavandula angustifolia Mill.: In Vitro and In Silico Evaluation.</a> <span class="journal">PMC12291901.</span></li>
+      <li id="r5"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3742169/" target="_blank" rel="noopener">Achillea millefolium L. Essential Oil Inhibits LPS-Induced Oxidative Stress and Nitric Oxide Production in RAW 264.7 Macrophages.</a> <span class="journal">PMC3742169.</span></li>
+      <li id="r6"><a href="https://link.springer.com/article/10.1007/s12231-011-9154-3" target="_blank" rel="noopener">Yarrow (Achillea millefolium L.): A Neglected Panacea? A Review of Ethnobotany, Bioactivity, and Biomedical Research.</a> <span class="journal">Economic Botany, Springer, 2011.</span></li>
+      <li id="r7"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9598488/" target="_blank" rel="noopener">Antioxidant, Anti-Inflammatory, and Antibacterial Properties of an Achillea millefolium L. Extract and Its Fractions.</a> <span class="journal">Antioxidants, 2022 / PMC9598488.</span></li>
+      <li id="r8"><a href="https://pubmed.ncbi.nlm.nih.gov/38076118/" target="_blank" rel="noopener">Achillea millefolium: Mechanism of action, pharmacokinetics, clinical drug–drug interactions and tolerability.</a> <span class="journal">PubMed 38076118.</span></li>
+      <li id="r9"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9983847/" target="_blank" rel="noopener">Neryl acetate, the major component of Corsican Helichrysum italicum essential oil, mediates its biological activities on skin barrier.</a> <span class="journal">PMC9983847.</span></li>
+      <li id="r10"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10945318/" target="_blank" rel="noopener">The Effects of Helichrysum italicum Extract on the Extracellular Matrix of the Skin.</a> <span class="journal">PMC10945318.</span></li>
+      <li id="r11"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8399527/" target="_blank" rel="noopener">A Review and Evaluation of the Data Supporting Internal Use of Helichrysum italicum (incl. arzanol pharmacology).</a> <span class="journal">PMC8399527.</span></li>
+      <li id="r12"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11201240/" target="_blank" rel="noopener">Antibacterial Properties of Helichrysum italicum Essential Oil (chromatographic + chemometric analysis).</a> <span class="journal">PMC11201240.</span></li>
+      <li id="r13"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12415070/" target="_blank" rel="noopener">Bioactive Compounds, Medicinal Benefits, and Contemporary Extraction Methods for Lemon Balm (Melissa officinalis).</a> <span class="journal">PMC12415070.</span></li>
+      <li id="r14"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11510126/" target="_blank" rel="noopener">Clinical Efficacy and Tolerability of Lemon Balm (Melissa officinalis L.) in Psychological Well-Being: A Review.</a> <span class="journal">Nutrients, 2024 / PMC11510126.</span></li>
+      <li id="r15"><a href="https://www.mdpi.com/2223-7747/15/4/650" target="_blank" rel="noopener">Melissa officinalis L. (Lemon Balm): An Integrative Review of Phytochemistry and Evidence from Preclinical Research to Clinical Studies.</a> <span class="journal">Plants, MDPI, 2026.</span></li>
+    </ol>
+  </div>
+</section>
+
+<footer class="site">
+  © 2026 PAUER · <span data-i18n="foot.tag">farm-to-bottle · Zenta</span>
+  <br>
+  <a href="index.html" class="back-link" data-i18n="foot.back">← Vissza a főoldalra</a>
+</footer>
+
+<script>
+const T = {
+  hu: {
+    'nav.products':'Termékeink','nav.farm':'Farmunk','nav.plants':'Növényeink','nav.order':'Rendelés',
+    'h.eyebrow':'A növényeink',
+    'h.title':'Négy növény – és a vegyületek, amelyeket a tudomány vizsgál bennük',
+    'h.sub':'Az ültetvényünk négy növénye nem véletlen. Mindegyik egy-egy jellemző vegyületcsalád hordozója, amelyeket a szakirodalom részletesen vizsgált. Az alábbiakban azt gyűjtöttük össze, mit tartalmaznak – és mit mutattak eddig a kutatások.',
+    'disc':'Ez a szakasz ismeretterjesztő tartalom a növényekről és fitokémiájukról, peer-reviewed kutatások alapján. Nem termékígéret, nem egészségügyi állítás és nem orvosi tanács. A hivatkozott vizsgálatok jellemzően izolált vegyületeket, kivonatokat vagy illóolajokat vizsgáltak – gyakran laboratóriumi (in vitro) körülmények között.',
+    'comp.lbl':'Fő vegyületek',
+    'lav.kicker':'Lavandula angustifolia · Lamiaceae',
+    'lav.h':'Levendula – a linalool és a linalil-acetát növénye',
+    'lav.p1':'A valódi levendula illatát két vegyület határozza meg: a linalool és a linalil-acetát. A standardizált levendulaolaj ezekből jellemzően a legtöbbet tartalmazza – az egyik legvizsgáltabb készítményben (Silexan) mérve 36,8% linalool és 34,2% linalil-acetát.<sup><a href="#r1">1</a></sup>',
+    'lav.p2':'<strong>Nyugtató irány.</strong> A levendulaolaj szorongásra gyakorolt hatását több klinikai vizsgálatban vizsgálták: egy öt randomizált vizsgálatot összesítő meta-analízisben a standardizált olaj a szorongási pontszámot (HAMA) a placebónál nagyobb mértékben csökkentette.<sup><a href="#r1">1</a></sup><sup><a href="#r2">2</a></sup>',
+    'lav.p3':'<strong>Mit néz a mechanizmus-kutatás.</strong> A linaloolt és a linalil-acetátot idegrendszeri célpontokon vizsgálták – többek között a szerotonin-rendszeren (5-HT1A) és a feszültségfüggő kalciumcsatornákon.<sup><a href="#r3">3</a></sup>',
+    'lav.p4':'<strong>Antimikrobiális irány.</strong> A levendula illóolaját laboratóriumi (in vitro) és in silico vizsgálatokban antimikrobiális szempontból is tanulmányozták.<sup><a href="#r4">4</a></sup>',
+    'lav.fact':'A legvizsgáltabb standardizált levendulaolaj (Silexan) <strong>36,8% linaloolt és 34,2% linalil-acetátot</strong> tartalmaz; egy meta-analízisben napi 80 mg orális adagja a szorongásra vizsgálva a placebónál hatékonyabbnak bizonyult.<sup><a href="#r1">1</a></sup>',
+    'yar.kicker':'Achillea millefolium · Asteraceae',
+    'yar.h':'Cickafark – a kék kamazulén növénye',
+    'yar.p1':'A cickafark desztillátuma gyakran kékes árnyalatú: ezt a kamazulén adja, amely a desztilláció hője alatt keletkezik. Az illóolaj nagyrészt oxigenált monoterpénekből áll (egy vizsgálatban a teljes olaj ~75,7%-a), fő komponensei az artemizia-keton, a kámfor, a linalil-acetát és az 1,8-cineol.<sup><a href="#r5">5</a></sup>',
+    'yar.p2':'<strong>Gyulladás-kutatás (in vitro).</strong> Egy sejtes vizsgálatban a cickafark illóolaja gyulladásra ingerelt makrofágokban csökkentette a gyulladásos jelzővegyületek termelését – a nitrogén-monoxidot mintegy 35%-kal, az IL-6 hírvivő-RNS-t körülbelül 50%-kal.<sup><a href="#r5">5</a></sup>',
+    'yar.p3':'<strong>Hagyományos használat.</strong> A cickafark a világ egyik legrégebben használt gyógynövénye; az etnobotanikai szakirodalom sebekkel, emésztéssel és gyulladással összefüggő hagyományos használatát dokumentálja.<sup><a href="#r6">6</a></sup>',
+    'yar.p4':'<strong>Antioxidáns és antibakteriális irány.</strong> A cickafark-kivonatokat és -frakciókat antioxidáns és antibakteriális szempontból is vizsgálták.<sup><a href="#r7">7</a></sup> A növény hatásmechanizmusát, farmakokinetikáját és tolerálhatóságát külön áttekintő tanulmány foglalja össze.<sup><a href="#r8">8</a></sup>',
+    'yar.fact':'Laboratóriumi (in vitro) vizsgálatban a cickafark illóolaja a gyulladásra ingerelt sejtekben a nitrogén-monoxid termelését <strong>~35%-kal</strong>, az IL-6 hírvivő-RNS-t <strong>~50%-kal</strong> csökkentette.<sup><a href="#r5">5</a></sup>',
+    'hel.kicker':'Helichrysum italicum · Asteraceae',
+    'hel.h':'Szalmagyopár – a neril-acetát prémium növénye',
+    'hel.p1':'A szalmagyopár a portfóliónk legértékesebb növénye. Illóolaja neril-acetátban gazdag – a korzikai típusban ez a fő komponens, jellemzően 33–39% között –, emellett tartalmazza az arzanol nevű, sokat vizsgált vegyületet is.<sup><a href="#r9">9</a></sup>',
+    'hel.p2':'<strong>Bőr-barrier kutatás (in vitro).</strong> Egy bőrmodellen végzett vizsgálatban a szalmagyopár fő vegyülete, a neril-acetát a bőr védőrétegéhez kötődő fehérjéket (involukrin) és a ceramidok mennyiségét növelte, és a bőr differenciálódásában szerepet játszó géneket szabályozott.<sup><a href="#r9">9</a></sup> A növény kivonatát a bőr extracelluláris mátrixán is tanulmányozták.<sup><a href="#r10">10</a></sup>',
+    'hel.p3':'<strong>Gyulladás- és antioxidáns-irány.</strong> Az arzanolt gyulladáscsökkentő és antioxidáns szempontból vizsgálták; a szalmagyopár belső használatának adatait külön áttekintés összegzi.<sup><a href="#r11">11</a></sup>',
+    'hel.p4':'<strong>Antimikrobiális irány.</strong> A szalmagyopár illóolajának antibakteriális aktivitását laboratóriumi vizsgálatokban is tanulmányozták.<sup><a href="#r12">12</a></sup>',
+    'hel.fact':'In vitro bőrmodellen a neril-acetát – a szalmagyopár fő vegyülete – a bőrbarrierhez kötődő involukrin fehérjét mintegy <strong>51%-kal</strong>, az összceramid mennyiségét körülbelül <strong>64%-kal</strong> növelte öt nap alatt.<sup><a href="#r9">9</a></sup>',
+    'mel.kicker':'Melissa officinalis · Lamiaceae',
+    'mel.h':'Citromfű – a rozmaringsav és a citrál növénye',
+    'mel.p1':'A citromfű friss, citromos illatát a citrál és a citronellál adja, a vizes kivonat legfontosabb hatóanyaga viszont a rozmaringsav – ezt tekintik a növény fő minőségi jelzővegyületének.<sup><a href="#r13">13</a></sup>',
+    'mel.p2':'<strong>Antioxidáns irány.</strong> A rozmaringsavat az egyik legerősebb növényi antioxidánsként tartják számon; a citromfű antioxidáns aktivitását vizsgálatokban a kvercetinéhez mérhetőnek találták.<sup><a href="#r13">13</a></sup>',
+    'mel.p3':'<strong>Nyugtató és kognitív irány.</strong> A citromfű-kivonatot klinikai és preklinikai vizsgálatokban tanulmányozták: egy vizsgálatban 600 mg standardizált kivonat a szorongás ~18%-os csökkenésével járt, más kísérletekben a kivonat a tanulási-emlékezeti teljesítményt javította.<sup><a href="#r13">13</a></sup><sup><a href="#r14">14</a></sup>',
+    'mel.p4':'<strong>Antivirális irány.</strong> A citromfüvet – elsősorban a rozmaringsav miatt – a herpesz simplex vírus (HSV-1) ellen laboratóriumi vizsgálatokban tanulmányozták.<sup><a href="#r13">13</a></sup><sup><a href="#r15">15</a></sup>',
+    'mel.fact':'A citromfű fő antioxidánsa a <strong>rozmaringsav</strong>; egy klinikai vizsgálatban 600 mg standardizált kivonat a szorongás <strong>~18%-os</strong> csökkenésével járt, laboratóriumi vizsgálatokban pedig a vegyület a HSV-1 vírust gátolta.<sup><a href="#r13">13</a></sup>',
+    'refs.h':'Tudományos háttér',
+    'refs.intro':'Az ezen az oldalon szereplő állítások mögött szakértői lektorálású (peer-reviewed) kutatások állnak. A vizsgálatok jellemzően izolált vegyületeket, kivonatokat vagy illóolajokat vizsgáltak – nem a PAUER termékeit. Nem kérünk hitet: kísérleti adatot mutatunk, forrással.',
+    'foot.tag':'farm-to-bottle · Zenta',
+    'foot.back':'← Vissza a főoldalra',
+  },
+  sr: {
+    'nav.products':'Proizvodi','nav.farm':'Naša farma','nav.plants':'Naše biljke','nav.order':'Narudžbina',
+    'h.eyebrow':'Naše biljke',
+    'h.title':'Četiri biljke – i jedinjenja koja nauka u njima ispituje',
+    'h.sub':'Četiri biljke naše plantaže nisu slučajnost. Svaka je nosilac po jedne karakteristične grupe jedinjenja, koja je stručna literatura detaljno ispitivala. U nastavku smo sakupili šta sadrže – i šta su istraživanja do sada pokazala.',
+    'disc':'Ovaj deo je informativni sadržaj o biljkama i njihovoj fitohemiji, zasnovan na recenziranim (peer-reviewed) istraživanjima. Nije obećanje o proizvodu, nije zdravstvena tvrdnja niti medicinski savet. Navedena istraživanja uglavnom su ispitivala izolovana jedinjenja, ekstrakte ili etarska ulja – često u laboratorijskim (in vitro) uslovima.',
+    'comp.lbl':'Glavna jedinjenja',
+    'lav.kicker':'Lavandula angustifolia · Lamiaceae',
+    'lav.h':'Lavanda – biljka linalola i linalil-acetata',
+    'lav.p1':'Miris prave lavande određuju dva jedinjenja: linalol i linalil-acetat. Standardizovano ulje lavande sadrži ih najviše – u jednom od najviše ispitivanih preparata (Silexan) izmereno je 36,8% linalola i 34,2% linalil-acetata.<sup><a href="#r1">1</a></sup>',
+    'lav.p2':'<strong>Umirujući pravac.</strong> Dejstvo ulja lavande na anksioznost ispitivano je u više kliničkih studija: u meta-analizi pet randomizovanih studija standardizovano ulje je smanjilo skor anksioznosti (HAMA) više od placeba.<sup><a href="#r1">1</a></sup><sup><a href="#r2">2</a></sup>',
+    'lav.p3':'<strong>Šta ispituje istraživanje mehanizma.</strong> Linalol i linalil-acetat ispitivani su na ciljevima nervnog sistema – između ostalog na serotoninskom sistemu (5-HT1A) i naponski zavisnim kalcijumskim kanalima.<sup><a href="#r3">3</a></sup>',
+    'lav.p4':'<strong>Antimikrobni pravac.</strong> Etarsko ulje lavande ispitivano je i sa antimikrobnog aspekta u laboratorijskim (in vitro) i in silico studijama.<sup><a href="#r4">4</a></sup>',
+    'lav.fact':'Najviše ispitivano standardizovano ulje lavande (Silexan) sadrži <strong>36,8% linalola i 34,2% linalil-acetata</strong>; u meta-analizi se dnevna oralna doza od 80 mg za anksioznost pokazala efikasnijom od placeba.<sup><a href="#r1">1</a></sup>',
+    'yar.kicker':'Achillea millefolium · Asteraceae',
+    'yar.h':'Hajdučka trava – biljka plavog hamazulena',
+    'yar.p1':'Destilat hajdučke trave često je plavičast: to daje hamazulen, koji nastaje pod toplotom destilacije. Etarsko ulje se velikim delom sastoji od oksigenovanih monoterpena (u jednoj studiji ~75,7% ukupnog ulja), a glavni sastojci su artemizija-keton, kamfor, linalil-acetat i 1,8-cineol.<sup><a href="#r5">5</a></sup>',
+    'yar.p2':'<strong>Istraživanje upale (in vitro).</strong> U ćelijskoj studiji etarsko ulje hajdučke trave je u makrofagima podstaknutim na upalu smanjilo stvaranje upalnih signalnih jedinjenja – azot-monoksid za oko 35%, IL-6 informacionu RNK za oko 50%.<sup><a href="#r5">5</a></sup>',
+    'yar.p3':'<strong>Tradicionalna upotreba.</strong> Hajdučka trava je jedna od najstarije korišćenih lekovitih biljaka na svetu; etnobotanička literatura dokumentuje tradicionalnu upotrebu vezanu za rane, varenje i upalu.<sup><a href="#r6">6</a></sup>',
+    'yar.p4':'<strong>Antioksidativni i antibakterijski pravac.</strong> Ekstrakti i frakcije hajdučke trave ispitivani su i sa antioksidativnog i antibakterijskog aspekta.<sup><a href="#r7">7</a></sup> Mehanizam dejstva, farmakokinetiku i podnošljivost biljke sažima poseban pregledni rad.<sup><a href="#r8">8</a></sup>',
+    'yar.fact':'U laboratorijskoj (in vitro) studiji etarsko ulje hajdučke trave je u ćelijama podstaknutim na upalu smanjilo stvaranje azot-monoksida za <strong>~35%</strong>, a IL-6 informacionu RNK za <strong>~50%</strong>.<sup><a href="#r5">5</a></sup>',
+    'hel.kicker':'Helichrysum italicum · Asteraceae',
+    'hel.h':'Smilje – premium biljka neril-acetata',
+    'hel.p1':'Smilje je najvrednija biljka u našem portfoliju. Njegovo etarsko ulje je bogato neril-acetatom – u korzikanskom tipu to je glavni sastojak, obično između 33–39% –, a sadrži i mnogo ispitivano jedinjenje arzanol.<sup><a href="#r9">9</a></sup>',
+    'hel.p2':'<strong>Istraživanje kožne barijere (in vitro).</strong> U studiji na modelu kože, glavno jedinjenje smilja, neril-acetat, povećalo je proteine vezane za zaštitni sloj kože (involukrin) i količinu ceramida, i regulisalo gene uključene u diferencijaciju kože.<sup><a href="#r9">9</a></sup> Ekstrakt biljke je ispitivan i na ekstracelularnom matriksu kože.<sup><a href="#r10">10</a></sup>',
+    'hel.p3':'<strong>Protivupalni i antioksidativni pravac.</strong> Arzanol je ispitivan sa protivupalnog i antioksidativnog aspekta; podatke o unutrašnjoj upotrebi smilja sažima poseban pregled.<sup><a href="#r11">11</a></sup>',
+    'hel.p4':'<strong>Antimikrobni pravac.</strong> Antibakterijska aktivnost etarskog ulja smilja ispitivana je i u laboratorijskim studijama.<sup><a href="#r12">12</a></sup>',
+    'hel.fact':'Na in vitro modelu kože, neril-acetat – glavno jedinjenje smilja – povećao je protein involukrin vezan za kožnu barijeru za oko <strong>51%</strong>, a ukupnu količinu ceramida za oko <strong>64%</strong> tokom pet dana.<sup><a href="#r9">9</a></sup>',
+    'mel.kicker':'Melissa officinalis · Lamiaceae',
+    'mel.h':'Matičnjak – biljka ruzmarinske kiseline i citrala',
+    'mel.p1':'Svež, limunast miris matičnjaka daju citral i citronelal, ali najvažniji aktivni sastojak vodenog ekstrakta je ruzmarinska kiselina – smatra se glavnim jedinjenjem za kontrolu kvaliteta biljke.<sup><a href="#r13">13</a></sup>',
+    'mel.p2':'<strong>Antioksidativni pravac.</strong> Ruzmarinska kiselina se smatra jednim od najjačih biljnih antioksidanasa; antioksidativna aktivnost matičnjaka u studijama je nađena uporedivom sa kvercetinom.<sup><a href="#r13">13</a></sup>',
+    'mel.p3':'<strong>Umirujući i kognitivni pravac.</strong> Ekstrakt matičnjaka ispitivan je u kliničkim i pretkliničkim studijama: u jednoj studiji 600 mg standardizovanog ekstrakta pratilo je smanjenje anksioznosti od ~18%, a u drugim eksperimentima ekstrakt je poboljšao učenje i pamćenje.<sup><a href="#r13">13</a></sup><sup><a href="#r14">14</a></sup>',
+    'mel.p4':'<strong>Antivirusni pravac.</strong> Matičnjak je – prvenstveno zbog ruzmarinske kiseline – ispitivan protiv virusa herpes simpleksa (HSV-1) u laboratorijskim studijama.<sup><a href="#r13">13</a></sup><sup><a href="#r15">15</a></sup>',
+    'mel.fact':'Glavni antioksidans matičnjaka je <strong>ruzmarinska kiselina</strong>; u kliničkoj studiji 600 mg standardizovanog ekstrakta pratilo je smanjenje anksioznosti od <strong>~18%</strong>, a u laboratorijskim studijama jedinjenje je inhibiralo virus HSV-1.<sup><a href="#r13">13</a></sup>',
+    'refs.h':'Naučna osnova',
+    'refs.intro':'Iza tvrdnji na ovoj strani stoje recenzirana (peer-reviewed) istraživanja. Studije su uglavnom ispitivale izolovana jedinjenja, ekstrakte ili etarska ulja – ne proizvode PAUER. Ne tražimo veru: pokazujemo eksperimentalne podatke, sa izvorom.',
+    'foot.tag':'farm-to-bottle · Senta',
+    'foot.back':'← Nazad na početnu',
+  },
+  en: {
+    'nav.products':'Products','nav.farm':'Our Farm','nav.plants':'Our Plants','nav.order':'Order',
+    'h.eyebrow':'Our plants',
+    'h.title':'Four plants — and the compounds science studies within them',
+    'h.sub':'The four plants of our plantation are no accident. Each carries a characteristic family of compounds that the literature has studied in detail. Below we have gathered what they contain — and what research has shown so far.',
+    'disc':'This section is educational content about the plants and their phytochemistry, based on peer-reviewed research. It is not a product promise, not a health claim and not medical advice. The cited studies typically examined isolated compounds, extracts or essential oils — often under laboratory (in vitro) conditions.',
+    'comp.lbl':'Key compounds',
+    'lav.kicker':'Lavandula angustifolia · Lamiaceae',
+    'lav.h':'Lavender — the plant of linalool and linalyl acetate',
+    'lav.p1':'The scent of true lavender is defined by two compounds: linalool and linalyl acetate. Standardized lavender oil contains the most of these — in one of the most-studied preparations (Silexan), 36.8% linalool and 34.2% linalyl acetate were measured.<sup><a href="#r1">1</a></sup>',
+    'lav.p2':'<strong>Calming direction.</strong> The effect of lavender oil on anxiety has been examined in several clinical studies: in a meta-analysis pooling five randomized trials, the standardized oil reduced the anxiety score (HAMA) more than placebo.<sup><a href="#r1">1</a></sup><sup><a href="#r2">2</a></sup>',
+    'lav.p3':'<strong>What mechanism research looks at.</strong> Linalool and linalyl acetate have been studied on nervous-system targets — among others the serotonin system (5-HT1A) and voltage-dependent calcium channels.<sup><a href="#r3">3</a></sup>',
+    'lav.p4':'<strong>Antimicrobial direction.</strong> Lavender essential oil has also been studied from an antimicrobial standpoint in laboratory (in vitro) and in silico studies.<sup><a href="#r4">4</a></sup>',
+    'lav.fact':'The most-studied standardized lavender oil (Silexan) contains <strong>36.8% linalool and 34.2% linalyl acetate</strong>; in a meta-analysis, an 80 mg daily oral dose for anxiety proved more effective than placebo.<sup><a href="#r1">1</a></sup>',
+    'yar.kicker':'Achillea millefolium · Asteraceae',
+    'yar.h':'Yarrow — the plant of blue chamazulene',
+    'yar.p1':'Yarrow\'s distillate is often bluish: this comes from chamazulene, which forms under the heat of distillation. The essential oil consists largely of oxygenated monoterpenes (about 75.7% of the total oil in one study), its main components being artemisia ketone, camphor, linalyl acetate and 1,8-cineole.<sup><a href="#r5">5</a></sup>',
+    'yar.p2':'<strong>Inflammation research (in vitro).</strong> In a cell study, yarrow essential oil reduced the production of inflammatory signaling compounds in inflammation-stimulated macrophages — nitric oxide by about 35%, IL-6 messenger RNA by about 50%.<sup><a href="#r5">5</a></sup>',
+    'yar.p3':'<strong>Traditional use.</strong> Yarrow is one of the world\'s longest-used medicinal plants; the ethnobotanical literature documents traditional use related to wounds, digestion and inflammation.<sup><a href="#r6">6</a></sup>',
+    'yar.p4':'<strong>Antioxidant and antibacterial direction.</strong> Yarrow extracts and fractions have also been studied for antioxidant and antibacterial properties.<sup><a href="#r7">7</a></sup> A separate review summarizes the plant\'s mechanism of action, pharmacokinetics and tolerability.<sup><a href="#r8">8</a></sup>',
+    'yar.fact':'In a laboratory (in vitro) study, yarrow essential oil reduced nitric oxide production in inflammation-stimulated cells by <strong>~35%</strong> and IL-6 messenger RNA by <strong>~50%</strong>.<sup><a href="#r5">5</a></sup>',
+    'hel.kicker':'Helichrysum italicum · Asteraceae',
+    'hel.h':'Helichrysum — the premium plant of neryl acetate',
+    'hel.p1':'Helichrysum is the most valuable plant in our portfolio. Its essential oil is rich in neryl acetate — in the Corsican type this is the main component, typically between 33–39% — and it also contains the much-studied compound arzanol.<sup><a href="#r9">9</a></sup>',
+    'hel.p2':'<strong>Skin-barrier research (in vitro).</strong> In a study on a skin model, helichrysum\'s main compound, neryl acetate, increased proteins tied to the skin\'s protective layer (involucrin) and the amount of ceramides, and regulated genes involved in skin differentiation.<sup><a href="#r9">9</a></sup> The plant\'s extract has also been studied on the skin\'s extracellular matrix.<sup><a href="#r10">10</a></sup>',
+    'hel.p3':'<strong>Anti-inflammatory and antioxidant direction.</strong> Arzanol has been studied for anti-inflammatory and antioxidant properties; a separate review summarizes the data on internal use of helichrysum.<sup><a href="#r11">11</a></sup>',
+    'hel.p4':'<strong>Antimicrobial direction.</strong> The antibacterial activity of helichrysum essential oil has also been studied in laboratory research.<sup><a href="#r12">12</a></sup>',
+    'hel.fact':'On an in vitro skin model, neryl acetate — helichrysum\'s main compound — increased the skin-barrier protein involucrin by about <strong>51%</strong> and total ceramide content by about <strong>64%</strong> over five days.<sup><a href="#r9">9</a></sup>',
+    'mel.kicker':'Melissa officinalis · Lamiaceae',
+    'mel.h':'Lemon balm — the plant of rosmarinic acid and citral',
+    'mel.p1':'Lemon balm\'s fresh, lemony scent comes from citral and citronellal, but the most important active compound of its water extract is rosmarinic acid — regarded as the plant\'s main quality marker.<sup><a href="#r13">13</a></sup>',
+    'mel.p2':'<strong>Antioxidant direction.</strong> Rosmarinic acid is regarded as one of the strongest plant antioxidants; lemon balm\'s antioxidant activity has been found comparable to quercetin in studies.<sup><a href="#r13">13</a></sup>',
+    'mel.p3':'<strong>Calming and cognitive direction.</strong> Lemon balm extract has been studied in clinical and preclinical research: in one study, 600 mg of standardized extract was accompanied by an ~18% reduction in anxiety, and in other experiments the extract improved learning and memory.<sup><a href="#r13">13</a></sup><sup><a href="#r14">14</a></sup>',
+    'mel.p4':'<strong>Antiviral direction.</strong> Lemon balm — chiefly due to rosmarinic acid — has been studied against the herpes simplex virus (HSV-1) in laboratory studies.<sup><a href="#r13">13</a></sup><sup><a href="#r15">15</a></sup>',
+    'mel.fact':'Lemon balm\'s main antioxidant is <strong>rosmarinic acid</strong>; in a clinical study, 600 mg of standardized extract was accompanied by an <strong>~18%</strong> reduction in anxiety, and in laboratory studies the compound inhibited the HSV-1 virus.<sup><a href="#r13">13</a></sup>',
+    'refs.h':'The science behind it',
+    'refs.intro':'The claims on this page are backed by peer-reviewed research. The studies typically examined isolated compounds, extracts or essential oils — not PAUER products. We do not ask for belief: we show experimental data, with sources.',
+    'foot.tag':'farm-to-bottle · Zenta',
+    'foot.back':'← Back to home',
+  }
+};
+
+function setLang(lang){
+  localStorage.setItem('pauer-lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.dataset.i18n;
+    if (T[lang] && T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.lang-switch span').forEach(s=>{
+    s.classList.toggle('active', s.dataset.lang === lang);
+  });
+  document.documentElement.lang = lang;
+}
+const saved = localStorage.getItem('pauer-lang') || 'hu';
+if (saved !== 'hu') setLang(saved);
+</script>
+
+</body>
+</html>
